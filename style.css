@@ -6,6 +6,12 @@
   margin-left: auto;
 }
 
+.imgContainer {
+  overflow: hidden;
+  min-height: 100px;
+  min-width: 100px;
+}
+
 .bodyContent {
   margin-left: 150px;
   margin-right: 150px;
@@ -56,12 +62,12 @@
 }
 
 .footer {
-  background: #ff446b;
+  background: #f5faff;
   font-size: 12px;
   text-align: center;
   color: white;
   padding: 100px;
-  margin-top: 100px;
+  margin-top: 200px;
 }
 
 .solidShadow {
