@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Lobster|Fredoka+One|Raleway');
+
+/* SITE-WIDE COLOR SCHEME HEX CODES
+
+    Pinkish: #ff446b
+    Cyan: #00dada
+    Dark Blue: #111924
+
+*/
 .container {
   padding-right: 15px;
   padding-left: 15px;
@@ -6,12 +14,23 @@
   margin-left: auto;
 }
 
-.imgContainer {
+.imgContainerLeft {
   overflow: hidden;
-  min-height: 100px;
-  min-width: 100px;
+  height: 350px;
+  max-width: none;
+  margin-left: 0px;
+  padding-left: 0px;
 }
 
+.imgCropper {
+  overflow: hidden;
+  height: inherit;
+  max-width: inherit;
+}
+
+.reviewQuote {
+  padding-left: 50px;
+}
 .bodyContent {
   margin-left: 150px;
   margin-right: 150px;
@@ -33,6 +52,13 @@
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+
+}
+
+.vcenter { /* for use with columns in rows */
+  display: flex;
+  align-items: center;
+
 }
 
 .bigBlock {
@@ -49,16 +75,19 @@
 .reviewRows {
   background: white;
   color: black;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  /*
   padding-left: 50px;
   padding-right: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  */
   margin-bottom: 25px;
-  border-style: solid;
+  border-style: none;
   border-color: white;
   border-radius: 10px;
   border-width: 10px;
   box-shadow: 10px 10px 0px black;
+  height: 350px;
 }
 
 .footer {
@@ -261,7 +290,7 @@ canvas {
 /* unvisited link */
 
 a:link {
-  color: black;
+  color: #ff446b;
   text-decoration: none;
 }
 
@@ -269,7 +298,7 @@ a:link {
 /* visited link */
 
 a:visited {
-  color: black;
+  color: #ff446b;
   text-decoration: none;
 }
 
@@ -277,14 +306,14 @@ a:visited {
 /* mouse over link */
 
 a:hover {
-  color: #37c8a1;
+  color: #00dada;
 }
 
 
 /* selected link */
 
 a:active {
-  color: #37c8a1;
+  color: #00dada;
 }
 
 
