@@ -273,6 +273,15 @@
   overflow-x: hidden;
 }
 
+.customHR {
+  width: 95%
+    color: black;
+    line-height: 2px;
+
+    background-color: black;
+    margin-top: -6px;
+    margin-bottom: 10px;
+}
 body {
   background: #111924;
   /*
@@ -299,10 +308,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Comfortaa', serif;
   font-weight: bold;
   color: #ff446b;
-}
-
-hr {
-  color: black;
 }
 
 table, td, th {
@@ -367,7 +372,10 @@ span.glyphicon:hover, span.glyphicon:active {
   color: #ff446b;
 }
 /* BUTTONS */
-
+.contactGlyphs {
+  margin: 25px;
+  font-size: 48px;
+}
 .btn.outline {
   width: 125px;
   background: none;
