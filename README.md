@@ -1,6 +1,9 @@
 ![Logo](https://github.com/kbp7/COP4813-Group-Project---R8This/blob/master/images/logo.png?raw=true)
 # COP4813 - Internet Programming - Albert Ritzhaupt
 
+Website Link [WIP]:
+http://139.62.210.151/~group8/cop4813/index.html
+
 R8This is a movie and game review website based on an X/8 rating scale and allows users to comment and leave their own ratings on today's most popular entertainment. Users can customize their profiles and save a list of their favorite movies and games and recieve recommendations based on them. R8This was designed to be stylish, silly, and themed after the humble Octopus, our favorite 8 legged cephalopod. 
 
 This website is a group project for Internet Programming and is temporarily hosted on UNF servers. 
