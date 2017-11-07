@@ -84,7 +84,7 @@
 }
 
 .bigHeader {
-  font-size: 64px;
+  font-size: 100px;
   padding: 0px;
   margin: 0px;
   /* text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black; */
@@ -212,7 +212,7 @@
 }
 
 .nav li a {
-  display: block;
+  display: inline-block;
   color: white;
   text-align: center;
   padding: 14px 20px;
