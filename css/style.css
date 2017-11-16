@@ -84,7 +84,7 @@
 }
 
 .bigHeader {
-  font-size: 64px;
+  font-size: 100px;
   padding: 0px;
   margin: 0px;
   /* text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black; */
@@ -195,16 +195,16 @@
   padding-right: 10;
   margin-bottom: 0;
   list-style: none
+
 }
 
 .nav ul {
   list-style-type: none;
   margin: 0;
-  padding: 10;
   overflow: hidden;
   background-color: #00dada;
   width: 100%;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .nav li {
@@ -243,9 +243,7 @@
   height: 150px;
   margin-top: 40px;
   background-color: #fff;
-  padding: 4px;
 }
-
 
 /* backgrounds */
 
@@ -266,11 +264,6 @@
   color: white;
   /* text-shadow: black 0.1em 0.1em 0.1em; */
   background: transparent;
-}
-
-.overflow {
-  max-width: 100%;
-  overflow-x: hidden;
 }
 
 body {
@@ -299,10 +292,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Comfortaa', serif;
   font-weight: bold;
   color: #ff446b;
-}
-
-hr {
-  color: black;
 }
 
 table, td, th {
@@ -344,7 +333,7 @@ a:link {
 /* visited link */
 
 a:visited {
-  color: #ff446b;
+  color: #00dada;
   text-decoration: none;
 }
 
@@ -363,11 +352,16 @@ a:active {
 }
 
 /* color changing clyphicons */
+
 span.glyphicon:hover, span.glyphicon:active {
   color: #ff446b;
 }
-/* BUTTONS */
 
+/* BUTTONS */
+.contactGlyphs {
+  margin: 25px;
+  font-size: 48px;
+}
 .btn.outline {
   width: 125px;
   background: none;

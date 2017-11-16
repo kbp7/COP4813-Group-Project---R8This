@@ -3,12 +3,18 @@ $(document).ready(function() {
   var back = mainCanvas.getContext("2d");
   var logo = mainCanvas.getContext("2d");
   var octo = mainCanvas.getContext("2d");
+  var text = mainCanvas.getContext("2d");
   var canvasWidth = mainCanvas.width;
   var canvasHeight = mainCanvas.height;
 
   function drawLogo() {
     back.beginPath();
     var radius = 110;
+    back.arc(160, 160, 110, 0, Math.PI * 2, false);
+    back.fillStyle = "black";
+    back.fill();
+    back.closePath();
+    logo.beginPath();
     logo.arc(150, 150, radius, 0, Math.PI * 2, false);
     logo.fillStyle = "white";
     logo.fill();
