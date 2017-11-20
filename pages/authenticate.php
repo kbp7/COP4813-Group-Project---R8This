@@ -3,7 +3,7 @@
 
 	if($_SESSION['username'] == "")
 	{
-		header("Location: index.php?error=2");
+		header("Location: ../index.php?error=2");
 	}
 
 	$username = $_POST['username'];
@@ -15,7 +15,7 @@
 	{
 		header("Location: main.php");
 	}else{
-		header("Location: index.php?error=1");
+		header("Location: ../index.php?error=1");
 	}
 
 ?>
