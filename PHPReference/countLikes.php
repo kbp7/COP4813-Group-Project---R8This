@@ -1,10 +1,6 @@
 <?php
-  //write logic to pull last 4 reviews info from database
-  //Assign info to variables
-
-  //gets first row (latest review)
-  //SELECT * FROM (SELECT [Column] FROM [Table] ORDER BY [ID] DESC) WHERE ROWNUM = 1
-
+  //counts # of comments associated with review
+  //need to assign value to $mediaID
   // Create connection
   $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
   // Check connection
@@ -16,7 +12,7 @@
 
   mysql_select_db('group8');
 
-  $query = "SELECT * FROM Media ORDER BY ID LIMIT 1";
+  $query = "SELECT count(mediaID) FROM Likes WHERE MediaID = $mediaID";
   $result = mysql_query($query, $mysql_access);
 
   if(!$result)
@@ -25,9 +21,9 @@
   }
 
   //Access row contents
-  $row = $result->fetch_assoc();
-  //echo $row[0];
-  //echo $row[1];
+  $row = mysql_fetch_row($result);
+  $count = $row[0];
+
   mysql_close($mysql_access);
 
 ?>
