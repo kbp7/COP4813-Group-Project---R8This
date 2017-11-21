@@ -27,7 +27,7 @@
         }
         else {
           echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>';
-          echo '<li style="float:right"><a href="pages/userProfile.html">Logout</a></li>';
+          echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
         }
       ?>
     </ul>
