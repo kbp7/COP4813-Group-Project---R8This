@@ -17,23 +17,24 @@
   <!-- ///////////// Navbar ////////////// -->
   <div class="nav solidShadow">
     <ul>
-      <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+      <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> R8This</a></li>
       <li><a href="###">Movies</a></li>
       <li><a href="###">Games</a></li>
       <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
       <?php
-        if($_SESSION['username'] == "") {
+        if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
           echo '<li style="float:right"><a href="pages/login.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
         }
         else {
           echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>';
+          echo '<li style="float:right"><a href="pages/userProfile.html">Logout</a></li>';
         }
       ?>
     </ul>
   </div>
   <!-- Full width -->
   <div class="container-fluid">
-    <div class="row align-middle" id="banner" style="height: 175px;">
+    <div class="row align-middle mobile-hide" id="banner" style="height: 175px;">
       <div class="col-xs-4" style="height: 150px; margin-left: 100px; margin-right: -100px;">
         <h1 class="bigHeader lobster text-right" style="color: white; padding-top: 90px;">R8This</h1>
       </div>
@@ -46,14 +47,13 @@
       <div class="col-xs-4" style="height: 150px;">
         <h1 class="bigHeader lobster text-left" style="color: white; padding-top: 90px;">Reviews</h1>
       </div>
-      <div class="col-xs-12" style="z-index: 1;">
-        <div class="col-xs-2 col-xs-offset-5 text-center bannerDivPink" style="margin-bottom: -25px;">
-          <center>
-            <h3 style="color: white;">Latest Reviews</h3>
-          </center>
+      <div class="col-xs-12" style="z-index: 1;"><center>
+        <div class="bannerDivPink" style="margin-bottom: -25px;height:50px;width: 250px;padding: 0px;" align="center">
+            <h3 style="color: white; padding-top: 15px;">Latest Reviews</h3>
         </div>
-      </div>
+      </center></div>
     </div>
+
   </div>
   <!-- List of latest 4 reviews -->
   <?php
@@ -97,9 +97,9 @@
         <img src="images/BabyDriver.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h1><a href="###">Baby Driver (2017)</a></h1>
+        <h3><a href="###">Baby Driver (2017)</a></h3>
         <blockquote>
-          <p>If you want to see John Hamm going HAM and Kevin Spacey quoting Monsters Inc. then this is the movie for you.</p>
+          <p>If you want to see John Hamm going HAM then this is the movie for you. Just try not to think about Kevin Spacey.</p>
           <footer>Credible Critic, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 847
@@ -115,7 +115,7 @@
         <img src="images/BladeRunner2049.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h1><a href="###">Blade Runner 2049 (2017)</a></h1>
+        <h3><a href="###">Blade Runner 2049 (2017)</a></h3>
         <blockquote>
           <p>The best film no one went out to see. Another cult classic in the making, much like its predecessor.</p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
@@ -133,7 +133,7 @@
         <img src="images/Hellblade.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h1><a href="###">Hellblade: Senua's Sacrifice (2017)</a></h1>
+        <h3><a href="###">Hellblade: Senua's Sacrifice (2017)</a></h3>
         <blockquote>
           <p>An accurate and immersive way to experience Schizophrenia. I'm already hearing voices!</p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
@@ -151,7 +151,7 @@
         <img src="images/ItAlt.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h1><a href="###">It (2017)</a></h1>
+        <h3><a href="###">It (2017)</a></h3>
         <blockquote>
           <p>Mike Myers' absolutely chilling performance elevates this classic Dr. Seuss adaptation to terrifying levels.</p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
@@ -191,7 +191,12 @@
   <script src="libraries/jquery.min.js"></script>
   <!--script src="libraries/anime-master/anime.min.js"></script-->
   <script src="animation.js"></script>
-
+  <!--script>
+    $(document).ready(function() {
+        var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+        $('.mobile-hide').css('display', 'none');
+    });
+  </script-->
 </body>
 
 </html>
