@@ -3,7 +3,7 @@
 
 	if($_SESSION['username'] == "")
 	{
-		header("Location: index.php?error=2");
+		header("Location: ../index.php?error=2");
 	}
 
 	$username = $_POST['username'];
@@ -27,7 +27,9 @@
 	{
 		header("Location: userProfile.html");
 	}else{
+
 		echo(Invalid Password);
+
 	}
 
 ?>
