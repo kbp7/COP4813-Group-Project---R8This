@@ -9,8 +9,6 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	$_SESSION['username'] = $username;
-
 	$mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
 
 	if (!$mysql_access){
@@ -22,9 +20,11 @@
 	$result = mysql_query($query, $mysql_access);
 	mysql_close($mysql_access);
 
-
-	if($result === $password)
+	$row = mysql_fetch_assoc($result);
+	$pass = $row[0];
+	if($pass === $password)
 	{
+		$_SESSION['username'] = $username;
 		header("Location: userProfile.html");
 
 	}else{

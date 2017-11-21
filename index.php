@@ -97,9 +97,9 @@
         <img src="images/BabyDriver.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h2><a href="###">Baby Driver (2017)</a></h2>
+        <h3><a href="###">Baby Driver (2017)</a></h3>
         <blockquote>
-          <p>If you want to see John Hamm going HAM and Kevin Spacey quoting Monsters Inc. then this is the movie for you.</p>
+          <p>If you want to see John Hamm going HAM then this is the movie for you. Just try not to think about Kevin Spacey.</p>
           <footer>Credible Critic, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 847
@@ -115,7 +115,7 @@
         <img src="images/BladeRunner2049.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h2><a href="###">Blade Runner 2049 (2017)</a></h2>
+        <h3><a href="###">Blade Runner 2049 (2017)</a></h3>
         <blockquote>
           <p>The best film no one went out to see. Another cult classic in the making, much like its predecessor.</p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
@@ -133,7 +133,7 @@
         <img src="images/Hellblade.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h2><a href="###">Hellblade: Senua's Sacrifice (2017)</a></h2>
+        <h3><a href="###">Hellblade: Senua's Sacrifice (2017)</a></h3>
         <blockquote>
           <p>An accurate and immersive way to experience Schizophrenia. I'm already hearing voices!</p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
@@ -151,7 +151,7 @@
         <img src="images/ItAlt.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h2><a href="###">It (2017)</a></h2>
+        <h3><a href="###">It (2017)</a></h3>
         <blockquote>
           <p>Mike Myers' absolutely chilling performance elevates this classic Dr. Seuss adaptation to terrifying levels.</p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
