@@ -260,7 +260,8 @@
 
 .wumbotron {
   margin-bottom: -50px;
-  height: 500px;
+  margin-top: -1000px;
+  height: 1000px;
   color: white;
   /* text-shadow: black 0.1em 0.1em 0.1em; */
   background: transparent;

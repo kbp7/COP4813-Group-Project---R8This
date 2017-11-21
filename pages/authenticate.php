@@ -10,12 +10,26 @@
 	$password = $_POST['password'];
 
 	$_SESSION['username'] = $username;
+	
+	$mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
+	
+	if (!$mysql_access){
+		die('Could not connect'); 
+	}
+	mysql_select_db('group8');
 
-	if($username == "UNF" && $password == "Hi")
+	$query = "SELECT Password FROM User WHERE Username='$username'";
+	$result = mysql_query($query, $mysql_access);
+	mysql_close($mysql_access);
+	
+
+	if($result == $password)
 	{
-		header("Location: main.php");
+		header("Location: userProfile.html");
 	}else{
-		header("Location: ../index.php?error=1");
+
+		echo(Invalid Password);
+
 	}
 
 ?>
