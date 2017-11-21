@@ -17,16 +17,17 @@
   <!-- ///////////// Navbar ////////////// -->
   <div class="nav solidShadow">
     <ul>
-      <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+      <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> R8This</a></li>
       <li><a href="###">Movies</a></li>
       <li><a href="###">Games</a></li>
       <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
       <?php
-        if($_SESSION['username'] == "") {
+        if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
           echo '<li style="float:right"><a href="pages/login.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
         }
         else {
           echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>';
+          echo '<li style="float:right"><a href="pages/userProfile.html">Logout</a></li>';
         }
       ?>
     </ul>
