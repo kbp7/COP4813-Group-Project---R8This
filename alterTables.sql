@@ -31,3 +31,5 @@ INSERT INTO Comment (ID, MediaID, UserID, CreatedOn, Comment) VALUES (2, 2, 3, N
 INSERT INTO Comment (ID, MediaID, UserID, CreatedOn, Comment) VALUES (3, 3, 5, NOW(), "A must see comic book movie experience!!");
 INSERT INTO Likes (ID, MediaID, UserID) VALUES (3, 3, 5);
 INSERT INTO Likes (ID, MediaID, UserID) VALUES (4, 3, 4);
+INSERT INTO Media (Title, Genre, AgeRating, Cover, MediaType, ReleaseDate) VALUES ("Destiny 2", "Action", "R", NULL, 1, "2017-09-06 00:00:00.000");
+INSERT INTO Media (Title, Genre, AgeRating, Cover, MediaType, ReleaseDate) VALUES ("Prey", "Action", "R", NULL, 1, "2017-05-05 00:00:00.000");

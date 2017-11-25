@@ -25,7 +25,7 @@
 	if($pass === $password)
 	{
 		$_SESSION['username'] = $username;
-		header("Location: userProfile.html");
+		header("Location: ../index.php");
 
 	}else{
 
