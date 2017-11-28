@@ -31,3 +31,22 @@ INSERT INTO Comment (ID, MediaID, UserID, CreatedOn, Comment) VALUES (2, 2, 3, N
 INSERT INTO Comment (ID, MediaID, UserID, CreatedOn, Comment) VALUES (3, 3, 5, NOW(), "A must see comic book movie experience!!");
 INSERT INTO Likes (ID, MediaID, UserID) VALUES (3, 3, 5);
 INSERT INTO Likes (ID, MediaID, UserID) VALUES (4, 3, 4);
+INSERT INTO Media (Title, Genre, AgeRating, Cover, MediaType, ReleaseDate) VALUES ("Destiny 2", "Action", "R", NULL, 1, "2017-09-06 00:00:00.000");
+INSERT INTO Media (Title, Genre, AgeRating, Cover, MediaType, ReleaseDate) VALUES ("Prey", "Action", "R", NULL, 1, "2017-05-05 00:00:00.000");
+
+/**-------  Add Images to Media  ------------**/
+
+UPDATE Media SET Cover = 'BabyDriver.jpg' WHERE Title = 'Baby Driver';
+UPDATE Media SET Cover = 'ItAlt.jpg' WHERE Title = 'It';
+UPDATE Media SET Cover = 'GetOut.jpg' WHERE Title = 'Get Out';
+UPDATE Media SET Cover = 'Flatliners.jpg' WHERE Title = 'Flatliners';
+UPDATE Media SET Cover = 'Logan.jpg' WHERE Title = 'Logan';
+UPDATE Media SET Cover = 'JusticeLeague.jpg' WHERE Title = 'Justice League';
+UPDATE Media SET Cover = 'Zootopia.jpg' WHERE Title = 'Zooptopia';
+UPDATE Media SET Cover = 'Deadpool.jpeg' WHERE Title = 'Deadpool';
+UPDATE Media SET Cover = 'Destiny2.jpg' WHERE Title = 'Destiny 2';
+UPDATE Media SET Cover = 'Prey.png' WHERE Title = 'Prey';
+
+
+
+
