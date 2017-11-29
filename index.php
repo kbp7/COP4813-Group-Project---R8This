@@ -98,7 +98,7 @@ while ($row = mysql_fetch_assoc($result)) {
   <div class="container">
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon">movie</i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row1["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/BabyDriver.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
@@ -116,7 +116,7 @@ while ($row = mysql_fetch_assoc($result)) {
 
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon">movie</i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row2["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/BladeRunner2049.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
@@ -134,7 +134,7 @@ while ($row = mysql_fetch_assoc($result)) {
 
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon">videogame_asset</i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row3["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/Hellblade.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
@@ -152,7 +152,7 @@ while ($row = mysql_fetch_assoc($result)) {
 
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon">movie</i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row4["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/ItAlt.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
