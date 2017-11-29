@@ -73,12 +73,25 @@
     {
       die("Error processing data: ". mysql_error());
     }
-
+/*
 while ($row = mysql_fetch_assoc($result)) {
     echo $row["Title"];
     echo $row["Genre"];
     echo $row["AgeRating"];
 }
+*/
+    $row1 = mysql_fetch_assoc($result);
+    $date1 = explode("-", $row1["ReleaseDate"]);
+    $year1 = $date1[0];
+    $row2 = mysql_fetch_assoc($result);
+    $date2 = explode("-", $row2["ReleaseDate"]);
+    $year2 = $date2[0];
+    $row3 = mysql_fetch_assoc($result);
+    $date3 = explode("-", $row3["ReleaseDate"]);
+    $year3 = $date3[0];
+    $row4 = mysql_fetch_assoc($result);
+    $date4 = explode("-", $row4["ReleaseDate"]);
+    $year4 = $date4[0];
     mysql_close($mysql_access);
 
   ?>
@@ -89,7 +102,7 @@ while ($row = mysql_fetch_assoc($result)) {
         <img src="images/BabyDriver.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###">Baby Driver (2017)</a></h3>
+        <h3><a href="###"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
         <blockquote>
           <p>If you want to see John Hamm going HAM then this is the movie for you. Just try not to think about Kevin Spacey.</p>
           <footer>Credible Critic, <cite title="Source Title">Reviewer</cite></footer>
@@ -107,7 +120,7 @@ while ($row = mysql_fetch_assoc($result)) {
         <img src="images/BladeRunner2049.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###">Blade Runner 2049 (2017)</a></h3>
+        <h3><a href="###"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
         <blockquote>
           <p>The best film no one went out to see. Another cult classic in the making, much like its predecessor.</p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
@@ -125,7 +138,7 @@ while ($row = mysql_fetch_assoc($result)) {
         <img src="images/Hellblade.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###">Hellblade: Senua's Sacrifice (2017)</a></h3>
+        <h3><a href="###"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
         <blockquote>
           <p>An accurate and immersive way to experience Schizophrenia. I'm already hearing voices!</p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
@@ -143,7 +156,7 @@ while ($row = mysql_fetch_assoc($result)) {
         <img src="images/ItAlt.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###">It (2017)</a></h3>
+        <h3><a href="###"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
         <blockquote>
           <p>Mike Myers' absolutely chilling performance elevates this classic Dr. Seuss adaptation to terrifying levels.</p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
