@@ -99,7 +99,7 @@ while ($row = mysql_fetch_assoc($result)) {
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
         <i class="material-icons largeIcon alignIcon"><?php if($row1["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
-        <img src="images/<?php echo preg_replace('/\s+/', '', $row1['Title']); ?>.png" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
+        <img src="images/<?php echo $row1['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
@@ -117,7 +117,7 @@ while ($row = mysql_fetch_assoc($result)) {
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
         <i class="material-icons largeIcon alignIcon"><?php if($row2["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
-        <img src="images/<?php echo preg_replace('/\s+/', '', $row2['Title']); ?>.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
+        <img src="images/<?php echo $row2['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
@@ -135,7 +135,7 @@ while ($row = mysql_fetch_assoc($result)) {
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
         <i class="material-icons largeIcon alignIcon"><?php if($row3["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
-        <img src="images/<?php echo preg_replace('/\s+/', '', $row3['Title']); ?>.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
+        <img src="images/<?php echo $row3['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
@@ -153,7 +153,7 @@ while ($row = mysql_fetch_assoc($result)) {
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
         <i class="material-icons largeIcon alignIcon"><?php if($row4["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
-        <img src="images/<?php echo preg_replace('/\s+/', '', $row4['Title']); ?>.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
+        <img src="images/<?php echo $row4['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
