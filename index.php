@@ -73,13 +73,7 @@
     {
       die("Error processing data: ". mysql_error());
     }
-/*
-while ($row = mysql_fetch_assoc($result)) {
-    echo $row["Title"];
-    echo $row["Genre"];
-    echo $row["AgeRating"];
-}
-*/
+
     $row1 = mysql_fetch_assoc($result);
     $date1 = explode("-", $row1["ReleaseDate"]);
     $year1 = $date1[0];
@@ -92,6 +86,21 @@ while ($row = mysql_fetch_assoc($result)) {
     $row4 = mysql_fetch_assoc($result);
     $date4 = explode("-", $row4["ReleaseDate"]);
     $year4 = $date4[0];
+	
+	
+    $reviewquery = "SELECT * FROM Review ORDER BY ID DESC LIMIT 4";
+    $reviewResult = mysql_query($reviewquery, $mysql_access);
+	
+	if(!$reviewresult)
+    {
+      die("Error processing data: ". mysql_error());
+    }
+	
+	$rrow1 = mysql_fetch_assoc($reviewresult);
+    $rrow2 = mysql_fetch_assoc($reviewresult);
+    $rrow3 = mysql_fetch_assoc($reviewresult);
+    $rrow4 = mysql_fetch_assoc($reviewresult);
+	
     mysql_close($mysql_access);
 
   ?>
@@ -104,7 +113,7 @@ while ($row = mysql_fetch_assoc($result)) {
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
         <blockquote>
-          <p>If you want to see John Hamm going HAM then this is the movie for you. Just try not to think about Kevin Spacey.</p>
+          <p><?php echo $rrow1['Review']; ?></p>
           <footer>Credible Critic, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 847
