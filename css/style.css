@@ -7,6 +7,10 @@
     Deep Sea Blue: #111924
 
 */
+.mobile-hide {
+  display:block;
+}
+
 .pinkish {
   color: #ff446b
 }
@@ -76,6 +80,7 @@
 
 .reviewQuote {
   padding-left: 50px;
+  overflow: hidden;
 }
 .bodyContent {
   margin-left: 150px;
@@ -134,6 +139,7 @@
   border-width: 10px;
   box-shadow: 10px 10px 0px black;
   height: 350px;
+  overflow: hidden;
 }
 
 .footer {
@@ -195,16 +201,16 @@
   padding-right: 10;
   margin-bottom: 0;
   list-style: none
+
 }
 
 .nav ul {
   list-style-type: none;
   margin: 0;
-  padding: 10;
   overflow: hidden;
   background-color: #00dada;
   width: 100%;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .nav li {
@@ -243,9 +249,7 @@
   height: 150px;
   margin-top: 40px;
   background-color: #fff;
-  padding: 4px;
 }
-
 
 /* backgrounds */
 
@@ -262,26 +266,13 @@
 
 .wumbotron {
   margin-bottom: -50px;
-  height: 500px;
+  margin-top: -1000px;
+  height: 1000px;
   color: white;
   /* text-shadow: black 0.1em 0.1em 0.1em; */
   background: transparent;
 }
 
-.overflow {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.customHR {
-  width: 95%
-    color: black;
-    line-height: 2px;
-
-    background-color: black;
-    margin-top: -6px;
-    margin-bottom: 10px;
-}
 body {
   background: #111924;
   /*
@@ -296,11 +287,12 @@ body {
   font-size: 24px;
   margin: 0px;
   height: 100%;
+
 }
 
 p {
   font-family: 'Raleway', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   color: #111924;
 }
 
@@ -349,7 +341,7 @@ a:link {
 /* visited link */
 
 a:visited {
-  color: #ff446b;
+  color: #00dada;
   text-decoration: none;
 }
 
@@ -368,9 +360,11 @@ a:active {
 }
 
 /* color changing clyphicons */
+
 span.glyphicon:hover, span.glyphicon:active {
   color: #ff446b;
 }
+
 /* BUTTONS */
 .contactGlyphs {
   margin: 25px;
