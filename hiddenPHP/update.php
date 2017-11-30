@@ -21,9 +21,8 @@
   }
   $releaseDate = $_GET['releaseDate'];
 
-  INSERT INTO Media (Title, Genre, AgeRating, Cover, MediaType, ReleaseDate) VALUES
 	$query = "UPDATE Media SET Title='$title', Genre='$genre', AgeRating='$ageRating', ";
-  $query = $query . "Cover='$cover', MediaType='$mediaType', ReleaseDate='$releaseDate' WHERE ID='$movieID'";
+  $query = $query . "Cover='$cover', MediaType='$mediaType', ReleaseDate='$releaseDate' WHERE ID='$mediaID'";
 	$result = mysql_query($query, $mysql_access);
 
   if(!$result)
@@ -37,4 +36,3 @@
 	header('Location: ../pages/admin.php');
 
 ?>
-<a href="../pages/admin.php">Back</a>
