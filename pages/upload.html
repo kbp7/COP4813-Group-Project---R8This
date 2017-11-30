@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Admin - Change Record</title>
+  <link rel="stylesheet" href="../libraries/bootstrap.min.css"></link>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="../css/style.css"></link>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <!-- ///////////// Navbar ////////////// -->
+  <div class="nav solidShadow">
+    <ul>
+      <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+      <li><a href="###">Movies</a></li>
+      <li><a href="###">Games</a></li>
+      <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
+      <!--?php
+        if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
+          echo '<li style="float:right"><a href="pages/login.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
+        }
+        else {
+          echo '<li style="float:right"><a href="../pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>';
+          echo '<li style="float:right"><a href="../pages/logout.php">Logout</a></li>';
+        }
+      ?-->
+    </ul>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <center><h2>Image Upload</h2></center>
+        <form action="../hiddenPHP/uploadImage.php" method="post" enctype="multipart/form-data">
+          Select image to upload:
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type="submit" value="Upload Image" name="submit">
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
