@@ -28,14 +28,24 @@ This website is a group project for Internet Programming and is temporarily host
 6. The project must make use of a database using MySQL. The database structure should include at least one one‐to‐many relationship and must include at least one join operation as a query. The database should be pre‐populated with dummy data to enhance the user experience.
 
 # Website Features
+* User profile system
+* Likes and Comments
+* Searching, sorting, and viewing movie and game reviews by our authors
+* 8 out of 8 rating scale
+* Administration tools
 
 ## User Manual
 
 ## Database Schema
 
 ## Technologies
+* Atom
+* GitKraken + GitHub
+* MySQL
 
 ## Special Thanks
+* Stack Overflow
+* Albert "The Ritz" Ritzhaupt
 
 ## 
 
