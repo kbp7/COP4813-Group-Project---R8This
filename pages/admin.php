@@ -46,8 +46,8 @@ session_start();
           echo '<li style="float:right"><a href="pages/login.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
         }
         else {
-          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>';
-          echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
+          echo '<li style="float:right"><a href="../pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>';
+          echo '<li style="float:right"><a href="../pages/logout.php">Logout</a></li>';
         }
       ?>
     </ul>
@@ -58,7 +58,7 @@ session_start();
       <div class="col-xs-6 col-xs-offset-3">
         <center><h2>Admin Actions</h2></center>
 
-        <form action="add.php" method="get">
+        <form action="../hiddenPHP/add.php" method="get">
           <div class="form-group">
             <label for="title">Title</label>
             <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
@@ -92,6 +92,10 @@ session_start();
               <option value="T">T</option>
               <option value="M">M</option>
             </select>
+          </div>
+          <div class="form-group">
+            <label for="directorName">Cover Image URL</label>
+            <input type="text" class="form-control" name="cover" id="cover" placeholder="Enter URL of file on server">
           </div>
           <div class="form-check">
           <label class="form-check-label">
@@ -167,12 +171,12 @@ session_start();
 <script>
 	function changeRecord()
 	{
-		document.myForm.action='change.php';
+		document.myForm.action='../hiddenPHP/change.php';
 		document.myForm.submit();
 	}
   function deleteRecord()
   {
-          document.myForm.action='delete.php';
+          document.myForm.action='../hiddenPHP/delete.php';
           document.myForm.submit();
   }
 </script>

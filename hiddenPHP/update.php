@@ -23,7 +23,7 @@
 
   INSERT INTO Media (Title, Genre, AgeRating, Cover, MediaType, ReleaseDate) VALUES
 	$query = "UPDATE Media SET Title='$title', Genre='$genre', AgeRating='$ageRating', ";
-  $query = $query . "Cover='$cover', MediaType='$mediaType', ReleaseDate='$releaseDate' WHERE movieID='$movieID'";
+  $query = $query . "Cover='$cover', MediaType='$mediaType', ReleaseDate='$releaseDate' WHERE ID='$movieID'";
 	$result = mysql_query($query, $mysql_access);
 
   if(!$result)

@@ -98,6 +98,10 @@ session_start();
               <option value="M">M</option>
             </select>
           </div>
+          <div class="form-group">
+            <label for="directorName">Cover Image URL</label>
+            <input type="text" class="form-control" name="cover" id="cover" placeholder="Enter URL of file on server">
+          </div>
           <div class="form-check">
           <label class="form-check-label">
             <input class="form-check-input" type="radio" name="mediaType" id="mediaType" value=0 checked> Movie
