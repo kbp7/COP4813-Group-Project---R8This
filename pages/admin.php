@@ -55,8 +55,8 @@ session_start();
 
   <div class="container">
     <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
-        <center><h2>Admin Actions</h2></center>
+      <div class="col-xs-6">
+        <center><h2>Access Media Table</h2></center>
 
         <form action="../hiddenPHP/add.php" method="get">
           <div class="form-group">
@@ -105,6 +105,13 @@ session_start();
           </div>
           <button type="submit" class="btn btn-default" method="get">Add</button>
         </form>
+      </div>
+      <div class="col-xs-6">
+        <center><h2>Tools</h2>
+          <form action='' name='myForm' method='get'>
+            <button type="button" class="btn btn-default"><a href="upload.html">Image Upload Tool</a></button>
+          </form>
+        </center>
       </div>
     </div>
 
