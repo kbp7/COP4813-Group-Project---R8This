@@ -18,7 +18,8 @@
 
   INSERT INTO Media (Title, Genre, AgeRating, Cover, ReleaseDate, MediaType) VALUES
 	$query = "UPDATE Media SET Title='$title', Genre='$genre', AgeRating='$ageRating', ";
-  $query = $query . "Cover='$cover', ReleaseDate='$releaseDate', MediaType='$mediaType' WHERE ID='$movieID'";
+  $query = $query . "Cover='$cover', ReleaseDate='$releaseDate', MediaType='$mediaType' WHERE ID='$mediaID'";
+
 	$result = mysql_query($query, $mysql_access);
 
   if(!$result)
@@ -32,4 +33,3 @@
 	header('Location: ../pages/admin.php');
 
 ?>
-<a href="../pages/admin.php">Back</a>

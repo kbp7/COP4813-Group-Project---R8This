@@ -23,7 +23,7 @@ session_start();
 
     $mediaID = $_GET['mediaID'];
     $_SESSION["editMediaID"] = $mediaID;
-  	$query = "SELECT * FROM Media WHERE mediaID=" . $mediaID;
+  	$query = "SELECT * FROM Media WHERE ID=" . $mediaID;
   	$result = mysql_query($query, $mysql_access);
 
     if(!$result)
