@@ -23,8 +23,8 @@
 	}
 
 	mysql_select_db('group8');
-	$query = "INSERT INTO Media (Title, Genre, AgeRating, Cover, MediaType, ReleaseDate";
-	$query = $query . ") VALUES ('$title', '$genre', '$ageRating', '$cover', '$mediaType', '$releaseDate')";
+	$query = "INSERT INTO Media (Title, Genre, AgeRating, Cover, MediaType, ReleaseDate, MediaType";
+	$query = $query . ") VALUES ('$title', '$genre', '$ageRating', '$cover', '$releaseDate', '$mediaType')";
 
 	$result = mysql_query($query, $mysql_access);
   if(!$result)

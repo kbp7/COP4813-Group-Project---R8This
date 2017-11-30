@@ -11,7 +11,7 @@
   mysql_select_db('group8');
 
   //your query
-  $query = "SELECT * FROM Media ORDER BY ID LIMIT 1";
+  $query = "SELECT Comment FROM Comments where userID = '123' ORDER BY ID desc";
   $result = mysql_query($query, $mysql_access);
 
   if(!$result)
@@ -21,8 +21,8 @@
 
   //Access row contents
   $row = mysql_fetch_row($result);
-  //echo $row[0]; //ID
-  //echo $row[1]; //title
+  echo $row[0]; //ID
+  echo $row[1]; //title
   //....
   mysql_close($mysql_access);
 

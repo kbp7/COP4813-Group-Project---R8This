@@ -99,8 +99,8 @@ session_start();
           </div>
           <div class="form-check">
           <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="mediaType" id="mediaType" value=0 checked> Movie
-            <input class="form-check-input" type="radio" name="mediaType" id="mediaType" value=1> Game
+            <input class="form-check-input" type="radio" name="mediaType" id="mediaType" value="Movie" checked> Movie
+            <input class="form-check-input" type="radio" name="mediaType" id="mediaType" value="Game"> Game
           </label>
           </div>
           <button type="submit" class="btn btn-default" method="get">Add</button>
@@ -129,8 +129,8 @@ session_start();
         		$genre = $row[2];
         		$ageRating = $row[3];
         		$coverFile = $row[4];
-        		$mediaType = $row[5];
-        		$releaseDate = $row[6];
+        		$mediaType = $row[6];
+        		$releaseDate = $row[5];
 
         		echo "<tr>";
         		echo "<td><input type='radio' name='mediaID' value='$mediaID'></td>";

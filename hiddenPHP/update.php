@@ -13,16 +13,13 @@
 	$genre = $_GET['genre'];
   $ageRating = $_GET['ageRating'];
   $cover = $_GET['cover'];
-  if ($_GET['mediaType'] == 0) {
-    $mediaType = 0;
-  }
-  else {
-    $mediaType = 1;
-  }
+  $mediaType = $_GET['mediaType'];
   $releaseDate = $_GET['releaseDate'];
 
+  INSERT INTO Media (Title, Genre, AgeRating, Cover, ReleaseDate, MediaType) VALUES
 	$query = "UPDATE Media SET Title='$title', Genre='$genre', AgeRating='$ageRating', ";
-  $query = $query . "Cover='$cover', MediaType='$mediaType', ReleaseDate='$releaseDate' WHERE ID='$mediaID'";
+  $query = $query . "Cover='$cover', ReleaseDate='$releaseDate', MediaType='$mediaType' WHERE ID='$mediaID'";
+
 	$result = mysql_query($query, $mysql_access);
 
   if(!$result)
