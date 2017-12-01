@@ -117,7 +117,7 @@ session_start();
 
     <div class="row" style="margin-top: 50px;">
       <div class="col-xs-12">
-        <form action='' name='myForm' method='get'>
+        <form action='' name='myForm' id='myForm' method='get'>
         <?php
         	echo "<table>";
         	echo "<th></th><th>Title</th><th>Genre</th><th>Age Rating</th><th>Cover File</th><th>Media Type</th><th>Release Date</th>";
@@ -148,7 +148,7 @@ session_start();
         <br>
         <input type='button' class="btn btn-default" value='Change Record' onClick='changeRecord()'>
       	<input type='button' class="btn btn-default" value='Delete Record' onClick='deleteRecord()'>
-
+        <input type='button' class="btn btn-default" value='Delete Record' onClick='test()'>
         </form>
       </div>
     </div>
@@ -178,13 +178,19 @@ session_start();
 <script>
 	function changeRecord()
 	{
-		document.myForm.action='../hiddenPHP/change.php';
-		document.myForm.submit();
+    document.getElementById("myForm").action='../hiddenPHP/change.php';
+    document.getElementById("myForm").submit();
 	}
   function deleteRecord()
   {
-          document.myForm.action='../hiddenPHP/delete.php';
-          document.myForm.submit();
+    document.getElementById("myForm").action='../hiddenPHP/delete.php';
+    document.getElementById("myForm").submit();
+  }
+  function test()
+  {
+    //alert("hello world");
+    document.getElementById("myForm").action='../hiddenPHP/delete.php';
+    document.getElementById("myForm").submit();
   }
 </script>
 </body>
