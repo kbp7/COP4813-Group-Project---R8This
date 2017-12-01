@@ -108,6 +108,24 @@ session_start();
             <input class="form-check-input" type="radio" name="mediaType" id="mediaType" value="Game"> Game
           </label>
           </div>
+          <div class="form-group">
+            <label for="releaseDate">Release Date : </label>
+            <input name="releaseDate" id="releaseDate" type="date">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Score Rating</label>
+            <select class="form-control" name="rating" id="rating">
+              <option value="8">8</option>
+              <option value="7">7</option>
+              <option value="6">6</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select>
+          </div>
           <button type="submit" class="btn btn-default" method="get">Change</button>
         </form>
       </div>
