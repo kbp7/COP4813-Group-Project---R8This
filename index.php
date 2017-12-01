@@ -73,13 +73,7 @@
     {
       die("Error processing data: ". mysql_error());
     }
-/*
-while ($row = mysql_fetch_assoc($result)) {
-    echo $row["Title"];
-    echo $row["Genre"];
-    echo $row["AgeRating"];
-}
-*/
+
     $row1 = mysql_fetch_assoc($result);
     $date1 = explode("-", $row1["ReleaseDate"]);
     $year1 = $date1[0];
@@ -92,9 +86,33 @@ while ($row = mysql_fetch_assoc($result)) {
     $row4 = mysql_fetch_assoc($result);
     $date4 = explode("-", $row4["ReleaseDate"]);
     $year4 = $date4[0];
-    mysql_close($mysql_access);
-
   ?>
+    <?php
+
+    $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
+    if(!$mysql_access)
+    {
+      die('Could not connect: ' . mysql_error());
+    }
+
+    mysql_select_db('group8');
+
+    $reviewquery = "SELECT * FROM Review ORDER BY ID DESC LIMIT 4";
+    $reviewresult = mysql_query($reviewquery, $mysql_access);
+
+	if(!$reviewresult)
+    {
+      die("Error processing data: ". mysql_error());
+    }
+	
+	$rrow0 = mysql_fetch_assoc($reviewresult);
+    $rrow1 = mysql_fetch_assoc($reviewresult);
+    $rrow2 = mysql_fetch_assoc($reviewresult);
+    $rrow3 = mysql_fetch_assoc($reviewresult);
+	
+    mysql_close($mysql_access);
+  ?>
+   
   <div class="container">
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
@@ -104,7 +122,7 @@ while ($row = mysql_fetch_assoc($result)) {
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
         <blockquote>
-          <p>If you want to see John Hamm going HAM then this is the movie for you. Just try not to think about Kevin Spacey.</p>
+          <p><?php echo $rrow0["Review"];?></p>
           <footer>Credible Critic, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 847
@@ -122,7 +140,7 @@ while ($row = mysql_fetch_assoc($result)) {
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
         <blockquote>
-          <p>The best film no one went out to see. Another cult classic in the making, much like its predecessor.</p>
+          <p><?php echo $rrow1["Review"];?></p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 516
@@ -140,7 +158,7 @@ while ($row = mysql_fetch_assoc($result)) {
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
         <blockquote>
-          <p>An accurate and immersive way to experience Schizophrenia. I'm already hearing voices!</p>
+          <p><?php echo $rrow2["Review"];?></p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 308
@@ -158,7 +176,7 @@ while ($row = mysql_fetch_assoc($result)) {
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
         <blockquote>
-          <p>Mike Myers' absolutely chilling performance elevates this classic Dr. Seuss adaptation to terrifying levels.</p>
+          <p><?php echo $rrow3["Review"];?></p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 947

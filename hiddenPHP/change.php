@@ -61,9 +61,10 @@ session_start();
   <div class="container">
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
-        <center><h2>Admin Actions</h2></center>
+
         <?php
           $title = $_GET['title'];
+          echo "<center><h2>Edit $title</h2></center>";
         	$genre = $_GET['genre'];
         	$ageRating = $_GET['ageRating'];
           $cover = $_GET['cover'];
