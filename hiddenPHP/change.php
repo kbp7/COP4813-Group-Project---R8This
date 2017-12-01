@@ -62,15 +62,23 @@ session_start();
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
         <center><h2>Admin Actions</h2></center>
-
+        <?php
+          $title = $_GET['title'];
+        	$genre = $_GET['genre'];
+        	$ageRating = $_GET['ageRating'];
+          $cover = $_GET['cover'];
+          $mediaType = $_GET['mediaType'];
+          $releaseDate = $_GET['releaseDate'];
+          $rating = $_GET['rating'];
+         ?>
         <form action="update.php" method="get">
           <div class="form-group">
             <label for="movieTitle">Movie Title</label>
-            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
+            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="<?php echo $title; ?>">
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Genre</label>
-            <select class="form-control" name="genre" id="genre">
+            <select class="form-control" name="genre" id="genre" value="<?php echo $genre; ?>">
               <option value="Action">Action</option>
               <option value="Drama">Drama</option>
               <option value="Horror">Horror</option>
@@ -87,7 +95,7 @@ session_start();
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Age Rating</label>
-            <select class="form-control" name="ageRating" id="ageRating">
+            <select class="form-control" name="ageRating" id="ageRating" value="<?php echo $ageRating; ?>">
               <option value="G">G</option>
               <option value="PG">PG</option>
               <option value="PG-13">PG-13</option>
@@ -100,7 +108,7 @@ session_start();
           </div>
           <div class="form-group">
             <label for="directorName">Cover Image URL</label>
-            <input type="text" class="form-control" name="cover" id="cover" placeholder="Enter URL of file on server">
+            <input type="text" class="form-control" name="cover" id="cover" placeholder="Enter URL of file on server" value="<?php echo $cover; ?>">
           </div>
           <div class="form-check">
           <label class="form-check-label">
@@ -110,11 +118,11 @@ session_start();
           </div>
           <div class="form-group">
             <label for="releaseDate">Release Date : </label>
-            <input name="releaseDate" id="releaseDate" type="date">
+            <input name="releaseDate" id="releaseDate" type="date" value="<?php echo $releaseDate; ?>">
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Score Rating</label>
-            <select class="form-control" name="rating" id="rating">
+            <select class="form-control" name="rating" id="rating" value="<?php echo $rating; ?>">
               <option value="8">8</option>
               <option value="7">7</option>
               <option value="6">6</option>
