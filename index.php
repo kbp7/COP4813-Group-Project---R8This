@@ -113,33 +113,33 @@
     }
 
 	  $rrow0 = mysql_fetch_assoc($reviewresult);
-    $rrow0ID = $rrow0['ID'];
+    $rrow0ID = $rrow0['MediaID'];
     $rrow1 = mysql_fetch_assoc($reviewresult);
-    $rrow1ID = $rrow1['ID'];
+    $rrow1ID = $rrow1['MediaID'];
     $rrow2 = mysql_fetch_assoc($reviewresult);
-    $rrow2ID = $rrow2['ID'];
+    $rrow2ID = $rrow2['MediaID'];
     $rrow3 = mysql_fetch_assoc($reviewresult);
-	  $rrow3ID = $rrow3['ID'];
+	  $rrow3ID = $rrow3['MediaID'];
 
-    $query = "SELECT count(MediaID) FROM Comment WHERE MediaID = $rrow0ID";
+    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow0ID";
     $likeresult = mysql_query($query, $mysql_access);
     //Access row contents
     $lrow = mysql_fetch_row($likeresult);
     $count0 = $lrow[0];
 
-    $query = "SELECT count(MediaID) FROM Comment WHERE MediaID = $rrow1ID";
+    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow1ID";
     $likeresult = mysql_query($query, $mysql_access);
     //Access row contents
     $lrow = mysql_fetch_row($likeresult);
     $count1 = $lrow[0];
 
-    $query = "SELECT count(MediaID) FROM Comment WHERE MediaID = $rrow2ID";
+    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow2ID";
     $likeresult = mysql_query($query, $mysql_access);
     //Access row contents
     $lrow = mysql_fetch_row($likeresult);
     $count2 = $lrow[0];
 
-    $query = "SELECT count(MediaID) FROM Comment WHERE MediaID = $rrow3ID";
+    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow3ID";
     $likeresult = mysql_query($query, $mysql_access);
     //Access row contents
     $lrow = mysql_fetch_row($likeresult);
@@ -151,7 +151,7 @@
   <div class="container">
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon"><?php if($row1["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row1["MediaType"] === "Movie") { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/<?php echo $row1['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
@@ -169,7 +169,7 @@
 
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon"><?php if($row2["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row2["MediaType"] === "Movie") { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/<?php echo $row2['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
@@ -178,7 +178,7 @@
           <p><?php echo $rrow1["Review"];?></p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count0; ?>
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count1; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 77
         </p>
@@ -187,7 +187,7 @@
 
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon"><?php if($row3["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row3["MediaType"] === "Movie") { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/<?php echo $row3['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
@@ -196,7 +196,7 @@
           <p><?php echo $rrow2["Review"];?></p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count0; ?>
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count2; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 40
         </p>
@@ -205,7 +205,7 @@
 
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon"><?php if($row4["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row4["MediaType"] === "Movie") { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/<?php echo $row4['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
@@ -214,7 +214,7 @@
           <p><?php echo $rrow3["Review"];?></p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count0; ?>
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count3; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 84
         </p>

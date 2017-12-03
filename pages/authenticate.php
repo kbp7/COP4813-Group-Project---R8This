@@ -20,6 +20,7 @@
 	$result = mysql_query($query, $mysql_access);
 
 	$row = mysql_fetch_assoc($result);
+	$ID = $row['ID'];
 	$pass = $row['Password'];
 	$isAdmin = $row['Admin'];
 	echo "Given username: $username <br>";
@@ -29,6 +30,7 @@
 	if($pass === $password)
 	{
 		$_SESSION['username'] = $username;
+		$_SESSION['ID'] = $ID;
 		echo "Hello $username";
 		echo "your password is: $password";
 		if($isAdmin === 1) {
