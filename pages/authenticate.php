@@ -16,15 +16,25 @@
 	}
 	mysql_select_db('group8');
 
-	$query = "SELECT Password FROM User WHERE Username='$username'";
+	$query = "SELECT * FROM User WHERE Username='$username'";
 	$result = mysql_query($query, $mysql_access);
-	mysql_close($mysql_access);
 
 	$row = mysql_fetch_assoc($result);
-	$pass = $row[0];
+	$pass = $row['Password'];
+	$isAdmin = $row['Admin'];
+	echo "Given username: $username <br>";
+	echo "Given password: $password <br>";
+
+	echo "DB password: $pass";
 	if($pass === $password)
 	{
 		$_SESSION['username'] = $username;
+		echo "Hello $username";
+		echo "your password is: $password";
+		if($isAdmin === 1) {
+			$_SESSION['admin'] = $isAdmin;
+		}
+		else { $_SESSION['admin'] = 0; }
 		header("Location: ../index.php");
 
 	}else{
@@ -32,5 +42,5 @@
 		echo "Invalid Password";
 
 	}
-
+	mysql_close($mysql_access);
 ?>
