@@ -20,13 +20,20 @@
       <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> R8This</a></li>
       <li><a href="###">Movies</a></li>
       <li><a href="###">Games</a></li>
+      <?php
+        if($_SESSION['admin'] === 1) {
+          echo '<li><a href="pages/admin.php">Admin</a></li>';
+        }
+      ?>
+      <li><a href="pages/admin.php">Admin</a></li>
       <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
       <?php
         if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
-          echo '<li style="float:right"><a href="pages/login.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
+          echo '<li style="float:right"><a href="pages/login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
         }
         else {
-          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>';
+          $currentUser = $_SESSION['username'];
+          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
           echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
         }
       ?>
@@ -104,15 +111,43 @@
     {
       die("Error processing data: ". mysql_error());
     }
-	
-	$rrow0 = mysql_fetch_assoc($reviewresult);
+
+	  $rrow0 = mysql_fetch_assoc($reviewresult);
+    $rrow0ID = $rrow0['ID'];
     $rrow1 = mysql_fetch_assoc($reviewresult);
+    $rrow1ID = $rrow1['ID'];
     $rrow2 = mysql_fetch_assoc($reviewresult);
+    $rrow2ID = $rrow2['ID'];
     $rrow3 = mysql_fetch_assoc($reviewresult);
-	
+	  $rrow3ID = $rrow3['ID'];
+
+    $query = "SELECT count(MediaID) FROM Comment WHERE MediaID = $rrow0ID";
+    $likeresult = mysql_query($query, $mysql_access);
+    //Access row contents
+    $lrow = mysql_fetch_row($likeresult);
+    $count0 = $lrow[0];
+
+    $query = "SELECT count(MediaID) FROM Comment WHERE MediaID = $rrow1ID";
+    $likeresult = mysql_query($query, $mysql_access);
+    //Access row contents
+    $lrow = mysql_fetch_row($likeresult);
+    $count1 = $lrow[0];
+
+    $query = "SELECT count(MediaID) FROM Comment WHERE MediaID = $rrow2ID";
+    $likeresult = mysql_query($query, $mysql_access);
+    //Access row contents
+    $lrow = mysql_fetch_row($likeresult);
+    $count2 = $lrow[0];
+
+    $query = "SELECT count(MediaID) FROM Comment WHERE MediaID = $rrow3ID";
+    $likeresult = mysql_query($query, $mysql_access);
+    //Access row contents
+    $lrow = mysql_fetch_row($likeresult);
+    $count3 = $lrow[0];
+
     mysql_close($mysql_access);
   ?>
-   
+
   <div class="container">
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
@@ -125,7 +160,7 @@
           <p><?php echo $rrow0["Review"];?></p>
           <footer>Credible Critic, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 847
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count0; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 56
         </p>
@@ -143,7 +178,7 @@
           <p><?php echo $rrow1["Review"];?></p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 516
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count0; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 77
         </p>
@@ -161,7 +196,7 @@
           <p><?php echo $rrow2["Review"];?></p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 308
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count0; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 40
         </p>
@@ -179,7 +214,7 @@
           <p><?php echo $rrow3["Review"];?></p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 947
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count0; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 84
         </p>
