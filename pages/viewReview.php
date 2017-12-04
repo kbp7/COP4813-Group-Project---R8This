@@ -33,7 +33,7 @@
         }
         else {
           $currentUser = $_SESSION['username'];
-          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
+          echo '<li style="float:right"><a href="pages/userProfile.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
           echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
         }
       ?>
