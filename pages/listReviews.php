@@ -40,8 +40,8 @@ session_start();
   <div class="nav solidShadow">
     <ul>
       <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-      <li><a href="###">Movies</a></li>
-      <li><a href="###">Games</a></li>
+      <li><a href="listReviews.php?Type= 'Movie'">Movies</a></li>
+      <li><a href="listReviews.php?Type= 'Game'">Games</a></li>
       <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
       <?php
         if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
@@ -56,12 +56,31 @@ session_start();
     </ul>
   </div>
 
+  <!-- Full width -->
+  <div class="container-fluid">
+    <div class="row align-middle" style="height: 175px;">
+      <div class="col-xs-12" style="z-index: 1;">
+        <div class="col-xs-2 col-xs-offset-5 text-center bannerDivPink" style="margin-bottom: -25px;">
+          <center>
+            <?php
+                if(strpos($Type, 'Movie') !== FALSE){
+                  echo '<h3 style="color: white;">Movie Reviews</h3>';
+                }
+                else{
+                  echo '<h3 style="color: white;">Game Reviews</h3>';
+                }
+             ?>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
     <div class="row" style="margin-top: 50px;">
       <div class="col-xs-12">
         <form action='' name='myForm' id='myForm' method='get'>
         <?php
         	echo "<table>";
-        	echo "<th></th><th>Title</th><th>Rating</th><th>Genre</th><th>Age Rating</th><th>Release Date</th><th>Media Type</th>";
+        	echo "<th></th><th>Title</th><th>Rating</th><th>Genre</th><th>Age Rating</th><th>Release Date</th>";
 
         	while ($row = mysql_fetch_row($result))
         	{
@@ -81,7 +100,6 @@ session_start();
             echo "<td>$genre</td>";
           	echo "<td>$ageRating</td>";
             echo "<td>$releaseDate</td>";
-            echo "<td>$mediaType</td>";
           	echo "</tr>";
           }
           echo "</table>";
