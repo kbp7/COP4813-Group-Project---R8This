@@ -224,7 +224,7 @@ END;
               <div class="title h5">
                 <a href="###"><b>Add Comment:</b></a>
 				<?php $mediaID = $_GET['mediaID']; 
-				<input type="hidden" name="mediaID" value="<?php echo $mediaID; ?>">
+				<input type="hidden" name="mediaID" value="php echo $mediaID;">
 				?>
               </div>
             </div>
