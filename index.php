@@ -155,7 +155,7 @@
         <img src="images/<?php echo $row1['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow0ID?>"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
         <blockquote>
           <p><?php echo $rrow0["Review"];?></p>
           <footer>Credible Critic, <cite title="Source Title">Reviewer</cite></footer>
@@ -173,7 +173,7 @@
         <img src="images/<?php echo $row2['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow1ID?>"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
         <blockquote>
           <p><?php echo $rrow1["Review"];?></p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
@@ -191,7 +191,7 @@
         <img src="images/<?php echo $row3['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow2ID?>"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
         <blockquote>
           <p><?php echo $rrow2["Review"];?></p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
@@ -209,7 +209,7 @@
         <img src="images/<?php echo $row4['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow3ID?>"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
         <blockquote>
           <p><?php echo $rrow3["Review"];?></p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
