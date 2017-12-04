@@ -20,9 +20,24 @@
       <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> R8This</a></li>
       <li><a href="###">Movies</a></li>
       <li><a href="###">Games</a></li>
+      <?php
+        if($_SESSION['admin'] === 1) {
+          echo '<li><a href="pages/admin.php">Admin</a></li>';
+        }
+      ?>
+      <li><a href="pages/admin.php">Admin</a></li>
       <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
-      <li style="float:right"><a href="userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
-    </ul>
+      <?php
+        if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
+          echo '<li style="float:right"><a href="pages/login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
+        }
+        else {
+          $currentUser = $_SESSION['username'];
+          echo '<li style="float:right"><a href="pages/userProfile.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
+          echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
+        }
+      ?>
+	  <ul>
   </div>
   <!-- Full width -->
   <div class="container-fluid">
@@ -197,9 +212,32 @@ echo <<<END
     </div>
 END;
   }
-    mysql_close($mysql_access);
+      mysql_close($mysql_access);
 ?>
-
+<form action='../hiddenPHP/addComment.php' method="get">
+<div class="container">
+    <div class="row">
+      <div class="col-xs-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="float: left">
+              <div class="title h5">
+                <a href="###"><b>Add Comment:</b></a>
+				<?php $mediaID = $_GET['mediaID']; 
+				<input type="hidden" name="mediaID" value="echo $mediaID;">
+				?>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <input name="addComment" id="addComment" type="text">
+			<button type="submit" class="btn btn-default" value="Add" >Add</button>
+          </div>
+        </div>
+      </div>
+ </div>		
+</div> 
+	</form>	  
   <!-- Info and contact links -->
   <div id="footer" class="container-fluid footer">
     <div class="row">
@@ -222,6 +260,7 @@ END;
 
 
   <!-- Include jQuery and scripts -->
+  
   <script src="libraries/jquery.min.js"></script>
   <script src="libraries/anime-master/anime.min.js"></script>
   <script src="animation.js"></script>

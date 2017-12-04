@@ -78,6 +78,18 @@
   max-width: inherit;
 }
 
+.thumb1 {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.thumb1 a {
+  display: block;
+  width: 150px;
+  height: 150px;
+}
+
 .reviewQuote {
   padding-left: 50px;
   overflow: hidden;
