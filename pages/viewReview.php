@@ -33,7 +33,7 @@
         }
         else {
           $currentUser = $_SESSION['username'];
-          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
+          echo '<li style="float:right"><a href="pages/userProfile.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
           echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
         }
       ?>
@@ -212,9 +212,32 @@ echo <<<END
     </div>
 END;
   }
-    mysql_close($mysql_access);
+      mysql_close($mysql_access);
 ?>
-
+<form action='../hiddenPHP/addComment.php' method="get">
+<div class="container">
+    <div class="row">
+      <div class="col-xs-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="float: left">
+              <div class="title h5">
+                <a href="###"><b>Add Comment:</b></a>
+				<?php $mediaID = $_GET['mediaID']; 
+				<input type="hidden" name="mediaID" value="php echo $mediaID;">
+				?>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <input name="addComment" id="addComment" type="text">
+			<button type="submit" class="btn btn-default" value="Add" >Add</button>
+          </div>
+        </div>
+      </div>
+ </div>		
+</div> 
+	</form>	  
   <!-- Info and contact links -->
   <div id="footer" class="container-fluid footer">
     <div class="row">
@@ -237,6 +260,7 @@ END;
 
 
   <!-- Include jQuery and scripts -->
+  
   <script src="libraries/jquery.min.js"></script>
   <script src="libraries/anime-master/anime.min.js"></script>
   <script src="animation.js"></script>
