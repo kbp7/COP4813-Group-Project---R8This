@@ -20,9 +20,24 @@
       <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> R8This</a></li>
       <li><a href="###">Movies</a></li>
       <li><a href="###">Games</a></li>
+      <?php
+        if($_SESSION['admin'] === 1) {
+          echo '<li><a href="pages/admin.php">Admin</a></li>';
+        }
+      ?>
+      <li><a href="pages/admin.php">Admin</a></li>
       <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
-      <li style="float:right"><a href="userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
-    </ul>
+      <?php
+        if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
+          echo '<li style="float:right"><a href="pages/login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
+        }
+        else {
+          $currentUser = $_SESSION['username'];
+          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
+          echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
+        }
+      ?>
+	  <ul>
   </div>
   <!-- Full width -->
   <div class="container-fluid">
