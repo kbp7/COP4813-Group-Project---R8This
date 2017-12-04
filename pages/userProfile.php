@@ -1,10 +1,17 @@
+<?php
+  session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<!-- Use this page as a reference for the visual style of the website. Be mindful of our color pallette!!! -->
 <head>
-<!-- eh -->
-<link rel="stylesheet" href="../libraries/bootstrap.min.css"></link>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="../css/style.css"></link>
-
+  <title>R8This.com</title>
+  <link rel="stylesheet" href="../libraries/bootstrap.min.css"></link>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="../css/style.css"></link>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<body>
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-md-4 user-details">
@@ -57,6 +64,7 @@
             </div>
         </div>
   </div>
+</body>
   <?php
     //pulling latest 4 comments
     // Create connection
@@ -85,3 +93,4 @@
     mysql_close($mysql_access);
 
   ?>
+</html>
