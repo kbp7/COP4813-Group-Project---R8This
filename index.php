@@ -18,8 +18,8 @@
   <div class="nav solidShadow">
     <ul>
       <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> R8This</a></li>
-      <li><a href="###">Movies</a></li>
-      <li><a href="###">Games</a></li>
+      <li><a href="pages/listReviews.php?Type= 'Movie'">Movies</a></li>
+      <li><a href="pages/listReviews.php?Type= 'Game'">Games</a></li>
       <?php
         if($_SESSION['admin'] === 1) {
           echo '<li><a href="pages/admin.php">Admin</a></li>';
@@ -111,7 +111,7 @@
     {
       die("Error processing data: ". mysql_error());
     }
-
+  
   $rrow0 = mysql_fetch_assoc($reviewresult);
     $rrow1 = mysql_fetch_assoc($reviewresult);
     $rrow2 = mysql_fetch_assoc($reviewresult);
@@ -119,7 +119,7 @@
 
     mysql_close($mysql_access);
   ?>
-
+   
   <div class="container">
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
