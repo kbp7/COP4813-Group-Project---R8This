@@ -18,8 +18,8 @@
   <div class="nav solidShadow">
     <ul>
       <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> R8This</a></li>
-      <li><a href="###">Movies</a></li>
-      <li><a href="###">Games</a></li>
+      <li><a href="pages/listReviews.php?Type= 'Movie'">Movies</a></li>
+      <li><a href="pages/listReviews.php?Type= 'Game'">Games</a></li>
       <?php
         if($_SESSION['admin'] === 1) {
           echo '<li><a href="pages/admin.php">Admin</a></li>';
