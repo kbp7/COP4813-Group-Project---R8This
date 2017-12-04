@@ -15,10 +15,10 @@
   $cover = $_GET['cover'];
   $mediaType = $_GET['mediaType'];
   $releaseDate = $_GET['releaseDate'];
+  $rating = $_GET['rating'];
 
-  INSERT INTO Media (Title, Genre, AgeRating, Cover, ReleaseDate, MediaType) VALUES
 	$query = "UPDATE Media SET Title='$title', Genre='$genre', AgeRating='$ageRating', ";
-  $query = $query . "Cover='$cover', ReleaseDate='$releaseDate', MediaType='$mediaType' WHERE ID='$mediaID'";
+  $query = $query . "Cover='$cover', ReleaseDate='$releaseDate', MediaType='$mediaType', Rating=$rating WHERE ID=$mediaID";
 
 	$result = mysql_query($query, $mysql_access);
 

@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Use this page as a reference for the visual style of the website. Be mindful of our color pallette!!! -->
@@ -33,7 +36,72 @@
       </div>
     </div>
   </div>
+<?php
 
+  $mediaID = $_GET['mediaID'];
+
+  $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
+  if(!$mysql_access)
+  {
+    die('Could not connect: ' . mysql_error());
+  }
+
+  mysql_select_db('group8');
+
+  $query = "SELECT * FROM Review WHERE MediaID = " . $mediaID;
+  $result = mysql_query($query, $mysql_access);
+
+  if(!$result)
+  {
+    die("Error processing data: ". mysql_error());
+  }
+
+  $row = mysql_fetch_row($result);
+
+  $ID = $row[0];
+  $UserID = $row[1];
+  $CreatedOn = $row[2];
+  $MediaID = $row[3];
+  $Review = $row[4];
+
+  $query2 = "SELECT * FROM Media WHERE ID = " . $mediaID;
+  $result2 = mysql_query($query2, $mysql_access);
+
+  if(!$result2)
+  {
+    die("Error processing data: ". mysql_error());
+  }
+
+  $row2 = mysql_fetch_row($result2);
+
+  $ID_Media = $row2[0];
+  $Title_Media = $row2[1];
+  $Genre_Media = $row2[2];
+  $AgeRating_Media = $row2[3];
+  $Cover_Media = $row2[4];
+  $ReleaseDate_Media = $row2[5];
+  $MediaType_Media = $row2[6];
+  $Rating_Media = $row2[7];
+
+  $query4 = "SELECT * FROM User WHERE ID = " . $UserID;
+  $result4 = mysql_query($query4, $mysql_access);
+
+  if(!$result4)
+  {
+    die("Error processing data: ". mysql_error());
+  }
+
+  $row4 = mysql_fetch_row($result4);
+
+  $ID_User = $row4[0];
+  $Username_User = $row4[1];
+  $Email_User = $row4[2];
+  $Password_User = $row4[3];
+  $Admin_User = $row4[4];
+
+  mysql_close($mysql_access);
+
+  ?>
   <div class="container">
     <div style="background: url('../images/BabyDriver.jpg') no-repeat center center; position:fixed; width: 100%; height: 1000px; top:0; left:0; z-index: -1; filter:blur(5px); filter:brightness(50%);"></div>
     <div class="wumbotron">
@@ -52,30 +120,62 @@
     <div class="row" style="background:white;">
       <div class="col-xs-12 rounded">
 
-        <img src="../images/baby-driver-poster.jpeg" align="left" class="img-thumbnail" height="400" width="200">
+        <img src="../images/<?php echo $Cover_Media ?>" align="left" class="img-thumbnail" height="400" width="200">
 
-        <h2>Review Title</h2>
-        <a href="###"><h3>Author</h3></a>
-        <p> Everything about the film is pretty much pitch perfect if you ask me. Lets start with the cars. I have not been a fan of Fast and Furious films, but the chase scenes in this film run circles around that series if a certain reality of the moves
-          matters to you. This is more in line with Bullit,French Connection, and the Italian Job films as far as great chases. The music, fun, simply fun. Songs from every decade of my lifetime.
-        </p>
-        <p> Everything about the film is pretty much pitch perfect if you ask me. Lets start with the cars. I have not been a fan of Fast and Furious films, but the chase scenes in this film run circles around that series if a certain reality of the moves
-          matters to you. This is more in line with Bullit,French Connection, and the Italian Job films as far as great chases. The music, fun, simply fun. Songs from every decade of my lifetime.
-        </p>
-        <p> Everything about the film is pretty much pitch perfect if you ask me. Lets start with the cars. I have not been a fan of Fast and Furious films, but the chase scenes in this film run circles around that series if a certain reality of the moves
-          matters to you. This is more in line with Bullit,French Connection, and the Italian Job films as far as great chases. The music, fun, simply fun. Songs from every decade of my lifetime.
-        </p>
-        <p> Everything about the film is pretty much pitch perfect if you ask me. Lets start with the cars. I have not been a fan of Fast and Furious films, but the chase scenes in this film run circles around that series if a certain reality of the moves
-          matters to you. This is more in line with Bullit,French Connection, and the Italian Job films as far as great chases. The music, fun, simply fun. Songs from every decade of my lifetime.
-        </p>
+        <h2><?php echo $Title_Media ?></h2>
+        <a href="###"><h3><?php echo $Username_User ?></h3></a>
+        <?php echo $Review;?>
       </div>
     </div>
   </div>
   </div>
 
+<h2> Comments </h2>
+<?php
+  $mediaID = $_GET['mediaID'];
 
-  <div class="container">
-    <h2>Comments</h2>
+  $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
+  if(!$mysql_access)
+  {
+    die('Could not connect: ' . mysql_error());
+  }
+
+  mysql_select_db('group8');
+
+  $query3 = "SELECT * FROM Comment WHERE MediaID = " . $mediaID;
+  $result3 = mysql_query($query3, $mysql_access);
+
+  if(!$result3)
+  {
+    die("Error processing data: ". mysql_error());
+  }
+
+  while ($row3 = mysql_fetch_row($result3)){
+
+  $ID_Com = $row3[0];
+  $MediaID_Com = $row3[1];
+  $UserID_Com = $row3[2];
+  $CreatedOn_Com = $row3[3];
+  $Comment_Com = $row3[4];
+
+  $query5 = "SELECT * FROM User WHERE ID = " . $UserID;
+  $result5 = mysql_query($query5, $mysql_access);
+
+  if(!$result5)
+  {
+    die("Error processing data: ". mysql_error());
+  }
+
+  $row5 = mysql_fetch_row($result5);
+
+  $ID_User2 = $row5[0];
+  $Username_User2 = $row5[1];
+  $Email_User2 = $row5[2];
+  $Password_User2 = $row5[3];
+  $Admin_User2 = $row5[4];
+
+echo <<<END
+<div class="container">
     <div class="row">
       <div class="col-xs-8">
         <div class="panel panel-default">
@@ -85,37 +185,21 @@
             </div>
             <div class="float: left">
               <div class="title h5">
-                <a href="###"><b>USER NAME</b></a>
+                <a href="###"><b>$Username_User2</b></a>
               </div>
             </div>
           </div>
           <div class="panel-body">
-            <p> This is where the user comments will go</p>
+            $Comment_Com;
           </div>
         </div>
       </div>
     </div>
+END;
+  }
+    mysql_close($mysql_access);
+?>
 
-    <div class="row">
-      <div class="col-xs-8">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <div class="float: left image">
-              <p style="float: left;"><span class="glyphicons glyphicons-user"></span></p>
-            </div>
-            <div class="float: left">
-              <div class="title h5">
-                <a href="###"><b>USER NAME TWO</b></a>
-              </div>
-            </div>
-          </div>
-          <div class="panel-body">
-            <p> This is where the user comments will go</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- Info and contact links -->
   <div id="footer" class="container-fluid footer">
     <div class="row">

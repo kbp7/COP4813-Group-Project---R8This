@@ -43,11 +43,12 @@ session_start();
       <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
       <?php
         if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
-          echo '<li style="float:right"><a href="pages/login.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
+          echo '<li style="float:right"><a href="pages/login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
         }
         else {
-          echo '<li style="float:right"><a href="../pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>';
-          echo '<li style="float:right"><a href="../pages/logout.php">Logout</a></li>';
+          $currentUser = $_SESSION['username'];
+          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
+          echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
         }
       ?>
     </ul>
@@ -103,6 +104,24 @@ session_start();
             <input class="form-check-input" type="radio" name="mediaType" id="mediaType" value="Game"> Game
           </label>
           </div>
+          <div class="form-group">
+            <label for="releaseDate">Release Date : </label>
+            <input name="releaseDate" id="releaseDate" type="date">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Score Rating</label>
+            <select class="form-control" name="rating" id="rating">
+              <option value="8">8</option>
+              <option value="7">7</option>
+              <option value="6">6</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select>
+          </div>
           <button type="submit" class="btn btn-default" method="get">Add</button>
         </form>
       </div>
@@ -117,10 +136,10 @@ session_start();
 
     <div class="row" style="margin-top: 50px;">
       <div class="col-xs-12">
-        <form action='' name='myForm' method='get'>
+        <form action='' name='myForm' id='myForm' method='get'>
         <?php
         	echo "<table>";
-        	echo "<th></th><th>Title</th><th>Genre</th><th>Age Rating</th><th>Cover File</th><th>Media Type</th><th>Release Date</th>";
+        	echo "<th></th><th>Title</th><th>Genre</th><th>Age Rating</th><th>Cover File</th><th>Release Date</th><th>Media Type</th><th>Rating</th>";
 
         	while ($row = mysql_fetch_row($result))
         	{
@@ -129,8 +148,9 @@ session_start();
         		$genre = $row[2];
         		$ageRating = $row[3];
         		$coverFile = $row[4];
-        		$mediaType = $row[6];
         		$releaseDate = $row[5];
+            $mediaType = $row[6];
+            $rating = $row[7];
 
         		echo "<tr>";
         		echo "<td><input type='radio' name='mediaID' value='$mediaID'></td>";
@@ -138,8 +158,9 @@ session_start();
             echo "<td>$genre</td>";
           	echo "<td>$ageRating</td>";
           	echo "<td>$coverFile</td>";
-            echo "<td>$mediaType</td>";
             echo "<td>$releaseDate</td>";
+            echo "<td>$mediaType</td>";
+            echo "<td>$rating</td>";
           	echo "</tr>";
           }
           echo "</table>";
@@ -176,16 +197,17 @@ session_start();
   </div>
 
 <script>
-	function changeRecord()
-	{
-		document.myForm.action='../hiddenPHP/change.php';
-		document.myForm.submit();
-	}
-  function deleteRecord()
-  {
-          document.myForm.action='../hiddenPHP/delete.php';
-          document.myForm.submit();
-  }
+function changeRecord()
+{
+  document.getElementById("myForm").action='../hiddenPHP/change.php';
+  document.getElementById("myForm").submit();
+}
+function deleteRecord()
+{
+  document.getElementById("myForm").action='../hiddenPHP/delete.php';
+  document.getElementById("myForm").submit();
+}
+
 </script>
 </body>
 </html>

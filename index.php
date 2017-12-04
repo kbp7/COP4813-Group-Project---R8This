@@ -20,13 +20,20 @@
       <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> R8This</a></li>
       <li><a href="###">Movies</a></li>
       <li><a href="###">Games</a></li>
+      <?php
+        if($_SESSION['admin'] === 1) {
+          echo '<li><a href="pages/admin.php">Admin</a></li>';
+        }
+      ?>
+      <li><a href="pages/admin.php">Admin</a></li>
       <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
       <?php
         if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
-          echo '<li style="float:right"><a href="pages/login.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
+          echo '<li style="float:right"><a href="pages/login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
         }
         else {
-          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>';
+          $currentUser = $_SESSION['username'];
+          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
           echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
         }
       ?>
@@ -73,13 +80,7 @@
     {
       die("Error processing data: ". mysql_error());
     }
-/*
-while ($row = mysql_fetch_assoc($result)) {
-    echo $row["Title"];
-    echo $row["Genre"];
-    echo $row["AgeRating"];
-}
-*/
+
     $row1 = mysql_fetch_assoc($result);
     $date1 = explode("-", $row1["ReleaseDate"]);
     $year1 = $date1[0];
@@ -92,22 +93,74 @@ while ($row = mysql_fetch_assoc($result)) {
     $row4 = mysql_fetch_assoc($result);
     $date4 = explode("-", $row4["ReleaseDate"]);
     $year4 = $date4[0];
-    mysql_close($mysql_access);
-
   ?>
+    <?php
+
+    $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
+    if(!$mysql_access)
+    {
+      die('Could not connect: ' . mysql_error());
+    }
+
+    mysql_select_db('group8');
+
+    $reviewquery = "SELECT * FROM Review ORDER BY ID DESC LIMIT 4";
+    $reviewresult = mysql_query($reviewquery, $mysql_access);
+
+	if(!$reviewresult)
+    {
+      die("Error processing data: ". mysql_error());
+    }
+
+	  $rrow0 = mysql_fetch_assoc($reviewresult);
+    $rrow0ID = $rrow0['MediaID'];
+    $rrow1 = mysql_fetch_assoc($reviewresult);
+    $rrow1ID = $rrow1['MediaID'];
+    $rrow2 = mysql_fetch_assoc($reviewresult);
+    $rrow2ID = $rrow2['MediaID'];
+    $rrow3 = mysql_fetch_assoc($reviewresult);
+	  $rrow3ID = $rrow3['MediaID'];
+
+    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow0ID";
+    $likeresult = mysql_query($query, $mysql_access);
+    //Access row contents
+    $lrow = mysql_fetch_row($likeresult);
+    $count0 = $lrow[0];
+
+    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow1ID";
+    $likeresult = mysql_query($query, $mysql_access);
+    //Access row contents
+    $lrow = mysql_fetch_row($likeresult);
+    $count1 = $lrow[0];
+
+    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow2ID";
+    $likeresult = mysql_query($query, $mysql_access);
+    //Access row contents
+    $lrow = mysql_fetch_row($likeresult);
+    $count2 = $lrow[0];
+
+    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow3ID";
+    $likeresult = mysql_query($query, $mysql_access);
+    //Access row contents
+    $lrow = mysql_fetch_row($likeresult);
+    $count3 = $lrow[0];
+
+    mysql_close($mysql_access);
+  ?>
+
   <div class="container">
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon"><?php if($row1["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row1["MediaType"] === "Movie") { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/<?php echo $row1['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
         <blockquote>
-          <p>If you want to see John Hamm going HAM then this is the movie for you. Just try not to think about Kevin Spacey.</p>
+          <p><?php echo $rrow0["Review"];?></p>
           <footer>Credible Critic, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 847
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count0; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 56
         </p>
@@ -116,16 +169,16 @@ while ($row = mysql_fetch_assoc($result)) {
 
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon"><?php if($row2["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row2["MediaType"] === "Movie") { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/<?php echo $row2['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
         <blockquote>
-          <p>The best film no one went out to see. Another cult classic in the making, much like its predecessor.</p>
+          <p><?php echo $rrow1["Review"];?></p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 516
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count1; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 77
         </p>
@@ -134,16 +187,16 @@ while ($row = mysql_fetch_assoc($result)) {
 
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon"><?php if($row3["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row3["MediaType"] === "Movie") { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/<?php echo $row3['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
         <blockquote>
-          <p>An accurate and immersive way to experience Schizophrenia. I'm already hearing voices!</p>
+          <p><?php echo $rrow2["Review"];?></p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 308
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count2; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 40
         </p>
@@ -152,16 +205,16 @@ while ($row = mysql_fetch_assoc($result)) {
 
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
-        <i class="material-icons largeIcon alignIcon"><?php if($row4["MediaType"] === 0) { echo "movie"; } else { echo "videogame_asset"; } ?></i>
+        <i class="material-icons largeIcon alignIcon"><?php if($row4["MediaType"] === "Movie") { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/<?php echo $row4['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
         <h3><a href="###"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
         <blockquote>
-          <p>Mike Myers' absolutely chilling performance elevates this classic Dr. Seuss adaptation to terrifying levels.</p>
+          <p><?php echo $rrow3["Review"];?></p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 947
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count3; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 84
         </p>

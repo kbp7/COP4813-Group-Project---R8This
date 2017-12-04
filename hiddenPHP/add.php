@@ -6,14 +6,8 @@
 	$ageRating = $_GET['ageRating'];
   $cover = $_GET['cover'];
   $mediaType = $_GET['mediaType'];
-  if ($_GET['mediaType'] == 0) {
-    $mediaType = 0;
-  }
-  else {
-    $mediaType = 1;
-  }
   $releaseDate = $_GET['releaseDate'];
-
+  $rating = $_GET['rating'];
 	$mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
 
   //check for mysql error
@@ -23,8 +17,8 @@
 	}
 
 	mysql_select_db('group8');
-	$query = "INSERT INTO Media (Title, Genre, AgeRating, Cover, MediaType, ReleaseDate, MediaType";
-	$query = $query . ") VALUES ('$title', '$genre', '$ageRating', '$cover', '$releaseDate', '$mediaType')";
+	$query = "INSERT INTO Media (Title, Genre, AgeRating, Cover, ReleaseDate, MediaType, Rating";
+	$query = $query . ") VALUES ('$title', '$genre', '$ageRating', '$cover', '$releaseDate', '$mediaType', $rating)";
 
 	$result = mysql_query($query, $mysql_access);
   if(!$result)
