@@ -111,15 +111,15 @@
     {
       die("Error processing data: ". mysql_error());
     }
-	
+
 	$rrow0 = mysql_fetch_assoc($reviewresult);
     $rrow1 = mysql_fetch_assoc($reviewresult);
     $rrow2 = mysql_fetch_assoc($reviewresult);
     $rrow3 = mysql_fetch_assoc($reviewresult);
-	
+
     mysql_close($mysql_access);
   ?>
-   
+
   <div class="container">
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
@@ -200,7 +200,7 @@
       <div class="col-xs-12">
         <center>
           <p>
-            <span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span>
+            <a href="pages/about.html"><span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span></a>
             <span class="glyphicon glyphicon-envelope contactGlyphs" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-bitcoin contactGlyphs" aria-hidden="true"></span>
           </p>
