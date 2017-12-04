@@ -47,6 +47,24 @@ UPDATE Media SET Cover = 'Deadpool.jpeg' WHERE Title = 'Deadpool';
 UPDATE Media SET Cover = 'Destiny2.jpg' WHERE Title = 'Destiny 2';
 UPDATE Media SET Cover = 'Prey.png' WHERE Title = 'Prey';
 
+/**------- Add Reviews ------------**/
+
+
+INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (1,1, "2017-10-21 23:21:40.800", 3, "Blending race-savvy satire ith horror to especially potent effect, this bombshell social critique from first time director Jordan Peele proves positively fearless."); 
+INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (2,1, "2017-11-29 16:20:45.600", 4, "Flatliners is a remake of a 1990 thriller about medical students who flatline to try to find out what happens after death. The original movie was smart enough to know how ridiculous it was, but this remake lacks that self-awareness.");
+INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (3,1, "2017-11-30 18:20:45.777", 5, "The best wolverine movie yet! Grown up, ballsy, character-driven and grounded. It feels right that it should be the last one, but it also feels a bit of a shame");
+INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (4,1, "2017-11-23 23:20:45.744", 6, "The newest superhero jam from DC Comics is looser, goosier and certainly more watchable than the last one, though the bar could scarcely have been lower."); 
+INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (5,1, "2017-11-22 22:20:45.722", 7, "Clever and heartwarming, this animated adventure is equal parts buddy-cop comedy, fish-out-of-water tale, and whodunit mystery.");
+INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (6,1, "2017-11-11 54:20:45.455", 8, "Still, Deadpool is party time for action junkies and Reynolds may just have found the role that makes his career."); 
+INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (7,1, "2017-11-12 34:20:45.655", 9, "Destiny 2 succeeds where the original failed the most: its delivery of a story-driven campaign good enough to match its finely tuned first-person shooter gameplay and great looks. "); 
+INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (8,1, "2017-11-23 33:20:45.230", 10, "The first hours of Prey are enticing, with a mind-bending psychological opening scene that foreshadows a story more interesting than what the main plot ends up being");
+
+
+
+
+
+
+
 
 
 

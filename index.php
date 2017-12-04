@@ -111,43 +111,15 @@
     {
       die("Error processing data: ". mysql_error());
     }
-
-	  $rrow0 = mysql_fetch_assoc($reviewresult);
-    $rrow0ID = $rrow0['MediaID'];
+	
+	$rrow0 = mysql_fetch_assoc($reviewresult);
     $rrow1 = mysql_fetch_assoc($reviewresult);
-    $rrow1ID = $rrow1['MediaID'];
     $rrow2 = mysql_fetch_assoc($reviewresult);
-    $rrow2ID = $rrow2['MediaID'];
     $rrow3 = mysql_fetch_assoc($reviewresult);
-	  $rrow3ID = $rrow3['MediaID'];
-
-    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow0ID";
-    $likeresult = mysql_query($query, $mysql_access);
-    //Access row contents
-    $lrow = mysql_fetch_row($likeresult);
-    $count0 = $lrow[0];
-
-    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow1ID";
-    $likeresult = mysql_query($query, $mysql_access);
-    //Access row contents
-    $lrow = mysql_fetch_row($likeresult);
-    $count1 = $lrow[0];
-
-    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow2ID";
-    $likeresult = mysql_query($query, $mysql_access);
-    //Access row contents
-    $lrow = mysql_fetch_row($likeresult);
-    $count2 = $lrow[0];
-
-    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow3ID";
-    $likeresult = mysql_query($query, $mysql_access);
-    //Access row contents
-    $lrow = mysql_fetch_row($likeresult);
-    $count3 = $lrow[0];
-
+	
     mysql_close($mysql_access);
   ?>
-
+   
   <div class="container">
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
