@@ -112,38 +112,10 @@
       die("Error processing data: ". mysql_error());
     }
 
-	  $rrow0 = mysql_fetch_assoc($reviewresult);
-    $rrow0ID = $rrow0['MediaID'];
+	$rrow0 = mysql_fetch_assoc($reviewresult);
     $rrow1 = mysql_fetch_assoc($reviewresult);
-    $rrow1ID = $rrow1['MediaID'];
     $rrow2 = mysql_fetch_assoc($reviewresult);
-    $rrow2ID = $rrow2['MediaID'];
     $rrow3 = mysql_fetch_assoc($reviewresult);
-	  $rrow3ID = $rrow3['MediaID'];
-
-    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow0ID";
-    $likeresult = mysql_query($query, $mysql_access);
-    //Access row contents
-    $lrow = mysql_fetch_row($likeresult);
-    $count0 = $lrow[0];
-
-    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow1ID";
-    $likeresult = mysql_query($query, $mysql_access);
-    //Access row contents
-    $lrow = mysql_fetch_row($likeresult);
-    $count1 = $lrow[0];
-
-    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow2ID";
-    $likeresult = mysql_query($query, $mysql_access);
-    //Access row contents
-    $lrow = mysql_fetch_row($likeresult);
-    $count2 = $lrow[0];
-
-    $query = "SELECT count(*) FROM Likes WHERE MediaID = $rrow3ID";
-    $likeresult = mysql_query($query, $mysql_access);
-    //Access row contents
-    $lrow = mysql_fetch_row($likeresult);
-    $count3 = $lrow[0];
 
     mysql_close($mysql_access);
   ?>
@@ -155,7 +127,7 @@
         <img src="images/<?php echo $row1['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow0ID?>"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
         <blockquote>
           <p><?php echo $rrow0["Review"];?></p>
           <footer>Credible Critic, <cite title="Source Title">Reviewer</cite></footer>
@@ -173,7 +145,7 @@
         <img src="images/<?php echo $row2['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow1ID?>"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
         <blockquote>
           <p><?php echo $rrow1["Review"];?></p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
@@ -191,7 +163,7 @@
         <img src="images/<?php echo $row3['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow2ID?>"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
         <blockquote>
           <p><?php echo $rrow2["Review"];?></p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
@@ -209,7 +181,7 @@
         <img src="images/<?php echo $row4['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="###"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow3ID?>"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
         <blockquote>
           <p><?php echo $rrow3["Review"];?></p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
@@ -228,7 +200,7 @@
       <div class="col-xs-12">
         <center>
           <p>
-            <span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span>
+            <a href="pages/about.html"><span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span></a>
             <span class="glyphicon glyphicon-envelope contactGlyphs" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-bitcoin contactGlyphs" aria-hidden="true"></span>
           </p>
