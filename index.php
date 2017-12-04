@@ -107,16 +107,16 @@
     $reviewquery = "SELECT * FROM Review ORDER BY ID DESC LIMIT 4";
     $reviewresult = mysql_query($reviewquery, $mysql_access);
 
-	if(!$reviewresult)
+  if(!$reviewresult)
     {
       die("Error processing data: ". mysql_error());
     }
-	
-	$rrow0 = mysql_fetch_assoc($reviewresult);
+  
+  $rrow0 = mysql_fetch_assoc($reviewresult);
     $rrow1 = mysql_fetch_assoc($reviewresult);
     $rrow2 = mysql_fetch_assoc($reviewresult);
     $rrow3 = mysql_fetch_assoc($reviewresult);
-	
+
     mysql_close($mysql_access);
   ?>
    
@@ -200,7 +200,7 @@
       <div class="col-xs-12">
         <center>
           <p>
-            <span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span>
+            <a href="pages/about.html"><span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span></a>
             <span class="glyphicon glyphicon-envelope contactGlyphs" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-bitcoin contactGlyphs" aria-hidden="true"></span>
           </p>
@@ -229,4 +229,4 @@
   </script-->
 </body>
 
-</html>
+</html> 
