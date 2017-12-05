@@ -43,7 +43,7 @@ session_start();
       <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
       <li><a href="listReviews.php?Type= 'Movie'">Movies</a></li>
       <li><a href="listReviews.php?Type= 'Game'">Games</a></li>
-      <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
+      
       <?php
         if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
           echo '<li style="float:right"><a href="pages/login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
