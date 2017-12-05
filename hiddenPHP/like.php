@@ -10,8 +10,9 @@
     }
 
     mysql_select_db('group8');
-
-    $query = "SELECT count(*) FROM Likes WHERE UserID = $_SESSION['ID']";
+    $mediaID = $_GET['id'];
+    $userID = $_SESSION['ID'];
+    $query = "SELECT count(*) FROM Likes WHERE (UserID = $userID) AND (MediaID = $mediaID)";
     $likeresult = mysql_query($query, $mysql_access);
 
     if(!$likeresult)
@@ -24,8 +25,9 @@
     $count0 = $lrow[0];
 
     if($count0 === 0) {
-      $query = "UPDATE count(*) FROM Likes WHERE UserID = $_SESSION['ID']";
+      $query = "INSERT INTO Likes(MediaID, UserID) values($mediaID, $userID)";
       $likeresult = mysql_query($query, $mysql_access);
+      echo "added like";
     }
     mysql_close($mysql_access);
   }
