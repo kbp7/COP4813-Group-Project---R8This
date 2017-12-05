@@ -205,7 +205,7 @@ echo <<<END
             </div>
           </div>
           <div class="panel-body">
-            $Comment_Com;
+            $Comment_Com
           </div>
         </div>
       </div>
@@ -214,31 +214,24 @@ END;
   }
       mysql_close($mysql_access);
 ?>
-<form action='../hiddenPHP/addComment.php' method="get">
-<div class="container">
-    <div class="row">
+<form action='../hiddenPHP/addComment.php' method="get" style="background:none;">
       <div class="col-xs-8">
         <div class="panel panel-default">
           <div class="panel-heading">
             <div class="float: left">
               <div class="title h5">
-                <a href="###"><b>Add Comment:</b></a>
-				<?php $mediaID = $_GET['mediaID']; 
-
-				<input type="hidden" name="mediaID" value="echo $mediaID;">
-
-				?>
+                <b>Add Comment:</b>
+				<?php $mediaID = $_GET['mediaID']; ?>
+				<input type="hidden" name="mediaID" value="<?php echo $mediaID;?>"/>
               </div>
             </div>
           </div>
           <div class="panel-body">
-            <input name="addComment" id="addComment" type="text">
+            <input name="addComment" id="addComment" type="text" maxlength="300" size="100"/>
 			<button type="submit" class="btn btn-default" value="Add" >Add</button>
           </div>
         </div>
-      </div>
- </div>		
-</div> 
+      </div>	
 	</form>	  
   <!-- Info and contact links -->
   <div id="footer" class="container-fluid footer">

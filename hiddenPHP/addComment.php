@@ -14,19 +14,21 @@ session_start();
   $comment = $_GET['addComment'];
   $mediaID = $_GET['mediaID'];
 	
-
-	mysql_select_db('group8');
-	$query = "INSERT INTO comment (MediaID, UserID, CreatedOn, Comment")
-    VALUES ('$mediaID', '$_SESSION['ID']', '$_SERVER['REQUEST_TIME']' , '$comment',)";
+  $currentUserID = $_SESSION['ID'];
+	$currentDate = date("Y-m-d H:i:s");
+	
+	$query = "INSERT INTO Comment (MediaID, UserID, CreatedOn, Comment) VALUES ($mediaID, $currentUserID, '$currentDate', '$comment')";
 
 	$result = mysql_query($query, $mysql_access);
   if(!$result)
 	{
 		die("Error processing data: ". mysql_error());
 	}
+  
   echo ("SUCCESS");
+  header("Location: ../pages/viewReview.php?mediaID=".$mediaID);
 	//Close connection
 	mysql_close($mysql_access);
-	header('Location: ../pages/admin.php');
 
+ }
 ?>
