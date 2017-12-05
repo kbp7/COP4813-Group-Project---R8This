@@ -100,6 +100,16 @@
   $Password_User = $row4[3];
   $Admin_User = $row4[4];
 
+  $countlikequery = "SELECT count(*) FROM Likes WHERE MediaID = " . $ID_Media;
+  $likeresult = mysql_query($countlikequery, $mysql_access);
+  if(!$likeresult)
+  {
+    die("Error processing data: ". mysql_error());
+  }
+  //Get Like count
+  $likerow = mysql_fetch_row($likeresult);
+  $likecount = $likerow[0];
+
   mysql_close($mysql_access);
 
   ?>
@@ -133,7 +143,9 @@
     <div class="col-md-12 rounded">
       <img src="../thumbIMG/<?php echo $Cover_Media ?>" align="left" class="img-thumbnail" height="400" width="200" style="margin-right: 25px;">
       <h2><?php echo $Title_Media ?></h2>
-      <a href="###"><p>Reviewed by - <?php echo $Username_User ?></p></a>
+      <p>Reviewed by - <?php echo $Username_User ?></p>
+      <h3><a href="../hiddenPHP/likeVR.php?id=<?php echo $mediaID; ?>"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a> <?php echo $likecount; ?>
+      </h3>
       <?php echo $Review;?>
     </div>
   </div>
@@ -198,7 +210,7 @@ echo <<<END
             </div>
             <div class="float: left">
               <div class="title h5">
-                <a href="###"><b>$Username_User2</b></a>
+                <b>$Username_User2</b></a>
               </div>
             </div>
           </div>
