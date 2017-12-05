@@ -82,20 +82,25 @@
     }
 
     $row1 = mysql_fetch_assoc($result);
+    $mediaID1 = $row1["ID"];
     $date1 = explode("-", $row1["ReleaseDate"]);
     $year1 = $date1[0];
     $row2 = mysql_fetch_assoc($result);
+    $mediaID2 = $row2["ID"];
     $date2 = explode("-", $row2["ReleaseDate"]);
     $year2 = $date2[0];
     $row3 = mysql_fetch_assoc($result);
+    $mediaID3 = $row3["ID"];
     $date3 = explode("-", $row3["ReleaseDate"]);
     $year3 = $date3[0];
     $row4 = mysql_fetch_assoc($result);
+    $mediaID4 = $row4["ID"];
     $date4 = explode("-", $row4["ReleaseDate"]);
     $year4 = $date4[0];
-  ?>
-    <?php
 
+    mysql_close($mysql_access);
+?>
+<?php
     $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
     if(!$mysql_access)
     {
@@ -104,33 +109,36 @@
 
     mysql_select_db('group8');
 
-    $reviewquery = "SELECT * FROM Review ORDER BY ID DESC LIMIT 4";
-    $reviewresult = mysql_query($reviewquery, $mysql_access);
+    $reviewquery1 = "SELECT * FROM Review WHERE MediaID = " . $mediaID1;
+    $reviewresult1 = mysql_query($reviewquery1, $mysql_access);
 
-  if(!$reviewresult)
-    {
-      die("Error processing data: ". mysql_error());
-    }
-  
-  $rrow0 = mysql_fetch_assoc($reviewresult);
-    $rrow1 = mysql_fetch_assoc($reviewresult);
-    $rrow2 = mysql_fetch_assoc($reviewresult);
-    $rrow3 = mysql_fetch_assoc($reviewresult);
+    if(!$reviewresult1)
+      {
+        die("Error processing data: ". mysql_error());
+      }
+
+    $reviewrow1 = mysql_fetch_row($reviewresult1);
+
+    $ID1_Rev = $reviewrow1[0];
+    $UserID1_Rev = $reviewrow1[1];
+    $CreatedOn1_Rev = $reviewrow1[2];
+    $MediaID1_Rev = $reviewrow1[3];
+    $Review1_Rev = $reviewrow1[4];
 
     mysql_close($mysql_access);
   ?>
-   
-  <div class="container">
+
+<div class="container">
     <div class="row reviewRows vcenter">
       <div class="col-xs-6 imgContainerLeft">
         <i class="material-icons largeIcon alignIcon"><?php if($row1["MediaType"] === "Movie") { echo "movie"; } else { echo "videogame_asset"; } ?></i>
         <img src="images/<?php echo $row1['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow0ID?>"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID1 ?>"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
         <blockquote>
-          <p><?php echo $rrow0["Review"];?></p>
-          <footer>Credible Critic, <cite title="Source Title">Reviewer</cite></footer>
+          <p><?php echo $Review1_Rev;?></p>
+          <footer><?php echo $UserID1_Rev; ?><cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count0; ?>
         </p>
@@ -145,9 +153,9 @@
         <img src="images/<?php echo $row2['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow1ID?>"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID2 ?>"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
         <blockquote>
-          <p><?php echo $rrow1["Review"];?></p>
+          <p>test</p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count1; ?>
@@ -163,9 +171,9 @@
         <img src="images/<?php echo $row3['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow2ID?>"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID3 ?>"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
         <blockquote>
-          <p><?php echo $rrow2["Review"];?></p>
+          <p>test</p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count2; ?>
@@ -181,9 +189,9 @@
         <img src="images/<?php echo $row4['Cover']; ?>" alt="Thumbnail" class="img-responsive img-rounded imgCropper">
       </div>
       <div class="col-xs-6 reviewQuote">
-        <h3><a href="pages/viewReview.php?mediaID= <?php echo $rrow3ID?>"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
+        <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID4 ?>"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
         <blockquote>
-          <p><?php echo $rrow3["Review"];?></p>
+          <p>test</p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count3; ?>
@@ -229,4 +237,4 @@
   </script-->
 </body>
 
-</html> 
+</html>
