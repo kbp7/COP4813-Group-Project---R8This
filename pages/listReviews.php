@@ -50,12 +50,12 @@ session_start();
       ?>
       <?php
         if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
-          echo '<li style="float:right"><a href="pages/login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
+          echo '<li style="float:right"><a href="./login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
         }
         else {
           $currentUser = $_SESSION['username'];
-          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
-          echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
+          echo '<li style="float:right"><a href="./userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
+          echo '<li style="float:right"><a href="./logout.php">Logout</a></li>';
         }
       ?>
     </ul>
