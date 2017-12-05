@@ -124,11 +124,8 @@
   </div>
 
 
-  <div class="container">
-    <div style="background: url('../images/<?php echo $Cover_Media ?>') no-repeat center center; position:fixed; width: 100%; height: 1000px; top:0; left:0; z-index: -1; filter:blur(5px); filter:brightness(50%);"></div>
-    <!--div class="wumbotron">
+  <div class="container-fluid" style="background: url('../images/<?php echo $Cover_Media ?>') no-repeat center center; background-size: cover; position:fixed; width: 100%; height: 100%; top:0; left:0; z-index: -1; filter:brightness(50%);">
 
-    </div-->
   </div>
 
   <!-- Movie review -->
@@ -224,7 +221,7 @@ END;
           <div class="float: left">
             <div class="title h5">
               <b>Add Comment:</b>
-              <?php $mediaID = $_GET['mediaID']; ?>
+                <?php $mediaID = $_GET['mediaID']; ?>
               <input type="hidden" name="mediaID" value="<?php echo $mediaID;?>"/>
             </div>
           </div>
