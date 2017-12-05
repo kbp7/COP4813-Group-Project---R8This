@@ -181,9 +181,7 @@ session_start();
       <div class="col-md-12">
         <center>
           <p>
-            <span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span>
-            <span class="glyphicon glyphicon-envelope contactGlyphs" aria-hidden="true"></span>
-            <span class="glyphicon glyphicon-bitcoin contactGlyphs" aria-hidden="true"></span>
+            <a href="about.html"><span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span>
           </p>
         </center>
       </div>
