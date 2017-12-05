@@ -105,9 +105,9 @@
 
   ?>
 <!-- Full width -->
-<div class="container-fluid">
+
   <div class="row align-middle" style="height: 25px;">
-    <div class="col-xs-12" style="z-index: 1;">
+    <div class="col-xs-12" style="z-index: 1; margin-top: 50px;">
       <div class="col-xs-2 col-xs-offset-5 text-center bannerDivPink">
         <center>
           <?php
@@ -122,7 +122,7 @@
       </div>
     </div>
   </div>
-</div>
+
 
   <div class="container">
     <div style="background: url('../images/<?php echo $Cover_Media ?>') no-repeat center center; position:fixed; width: 100%; height: 1000px; top:0; left:0; z-index: -1; filter:blur(5px); filter:brightness(50%);"></div>
@@ -132,29 +132,22 @@
   </div>
 
   <!-- Movie review -->
-  <div class="container">
-    <div class="row">
-      <!--div class="col-xs-12">
-        <img src="../images/BabyDriver.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper center-block" height="500" width="1000">
-      </div-->
+<div class="container">
+  <div class="row reviewContent">
+    <div class="col-md-12 rounded">
+      <img src="../thumbIMG/<?php echo $Cover_Media ?>" align="left" class="img-thumbnail" height="400" width="200" style="margin-right: 25px;">
+      <h2><?php echo $Title_Media ?></h2>
+      <a href="###"><p>Reviewed by - <?php echo $Username_User ?></p></a>
+      <?php echo $Review;?>
     </div>
-    <div class="row reviewContent">
-      <div class="col-xs-12 rounded">
-
-        <img src="../thumbIMG/<?php echo $Cover_Media ?>" align="left" class="img-thumbnail" height="400" width="200" style="margin-right: 25px;">
-
-        <h2><?php echo $Title_Media ?></h2>
-        <a href="###"><p>Reviewed by - <?php echo $Username_User ?></p></a>
-        <?php echo $Review;?>
-      </div>
-    </div>
+  </div>
 
 
-<div class="row">
+<div class="row reviewContent">
   <div class="col-md-12" align="center">
     <h2> Comments </h2>
   </div>
-  <div class="col-md-12">
+
 <?php
   $mediaID = $_GET['mediaID'];
 
@@ -200,7 +193,7 @@
 
 echo <<<END
 
-    <div class="row">
+
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -218,33 +211,38 @@ echo <<<END
           </div>
         </div>
       </div>
-    </div>
+
 END;
   }
       mysql_close($mysql_access);
 ?>
-
-<form action='../hiddenPHP/addComment.php' method="get" style="background:none;">
-      <div class="col-xs-8">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <div class="float: left">
-              <div class="title h5">
-                <b>Add Comment:</b>
-				<?php $mediaID = $_GET['mediaID']; ?>
-				<input type="hidden" name="mediaID" value="<?php echo $mediaID;?>"/>
-              </div>
+<div class="col-md-12">
+  <form action='../hiddenPHP/addComment.php' method="get" style="background:none;">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="float: left">
+            <div class="title h5">
+              <b>Add Comment:</b>
+              <?php $mediaID = $_GET['mediaID']; ?>
+              <input type="hidden" name="mediaID" value="<?php echo $mediaID;?>"/>
             </div>
           </div>
-          <div class="panel-body">
+        </div>
+        <div class="panel-body">
             <input name="addComment" id="addComment" type="text" maxlength="300" size="100"/>
-			<button type="submit" class="btn btn-default" value="Add" >Add</button>
-          </div>
+             <button type="submit" class="btn btn-default" value="Add" >Add</button>
         </div>
       </div>
-	</form>
+    </div>
+</form>
 </div>
+
 </div>
+
+
+
+
 </div>
   <!-- Info and contact links -->
   <div id="footer" class="container-fluid footer">
@@ -269,9 +267,8 @@ END;
 
   <!-- Include jQuery and scripts -->
 
-  <script src="libraries/jquery.min.js"></script>
-  <script src="libraries/anime-master/anime.min.js"></script>
-  <script src="animation.js"></script>
+  <script src="../libraries/jquery.min.js"></script>
+  <script src="../libraries/anime-master/anime.min.js"></script>
 </body>
 
 </html>
