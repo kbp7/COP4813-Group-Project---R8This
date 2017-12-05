@@ -84,6 +84,11 @@
   overflow: hidden;
 }
 
+.thumb2 {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
 .thumb1 a {
   display: block;
   width: 150px;
