@@ -2,7 +2,7 @@
 session_start();
 /* this PHP is used to add records to the Media table */
 
- if($_SESSION['username'] !== "" || $_SESSION['username'] !== NULL) {
+ if($_SESSION['ID'] > 0 || $_SESSION['admin'] != null) {
     $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
     if(!$mysql_access)
     {
@@ -30,5 +30,8 @@ session_start();
 	//Close connection
 	mysql_close($mysql_access);
 
+ }
+ else{
+	 header("Location: ../pages/login.php");
  }
 ?>

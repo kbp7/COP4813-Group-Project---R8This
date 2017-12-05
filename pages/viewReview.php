@@ -32,8 +32,8 @@
         }
         else {
           $currentUser = $_SESSION['username'];
-          echo '<li style="float:right"><a href="pages/userProfile.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
-          echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
+          echo '<li style="float:right"><a href="userProfile.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
+          echo '<li style="float:right"><a href="logout.php">Logout</a></li>';
         }
       ?>
 	  <ul>
@@ -106,16 +106,16 @@
   ?>
 <!-- Full width -->
 <div class="container-fluid">
-  <div class="row align-middle" style="height: 175px;">
+  <div class="row align-middle" style="height: 25px;">
     <div class="col-xs-12" style="z-index: 1;">
-      <div class="col-xs-2 col-xs-offset-5 text-center bannerDivPink" style="margin-bottom: -25px;">
+      <div class="col-xs-2 col-xs-offset-5 text-center bannerDivPink">
         <center>
           <?php
               if(strpos($MediaType_Media, 'Movie') !== FALSE){
-                echo '<h3 style="color: white;">Movie Reviews</h3>';
+                echo '<h3 style="color: white;">Movie Review</h3>';
               }
               else{
-                echo '<h3 style="color: white;">Game Reviews</h3>';
+                echo '<h3 style="color: white;">Game Review</h3>';
               }
            ?>
         </center>
@@ -126,10 +126,9 @@
 
   <div class="container">
     <div style="background: url('../images/<?php echo $Cover_Media ?>') no-repeat center center; position:fixed; width: 100%; height: 1000px; top:0; left:0; z-index: -1; filter:blur(5px); filter:brightness(50%);"></div>
-    <div class="wumbotron">
-      <!--h1 class="bigHeader lobster vertical-align">Baby Driver(2017)</h1-->
-      <!--h2 class="tealAccent" style="margin-top: 215px; text-align: center; font-weight: normal;">Review</h2-->
-    </div>
+    <!--div class="wumbotron">
+
+    </div-->
   </div>
 
   <!-- Movie review -->
@@ -139,20 +138,23 @@
         <img src="../images/BabyDriver.jpg" alt="Thumbnail" class="img-responsive img-rounded imgCropper center-block" height="500" width="1000">
       </div-->
     </div>
-    <div class="row" style="background:white;">
+    <div class="row reviewContent">
       <div class="col-xs-12 rounded">
 
-        <img src="../thumbIMG/<?php echo $Cover_Media ?>" align="left" class="img-thumbnail" height="400" width="200">
+        <img src="../thumbIMG/<?php echo $Cover_Media ?>" align="left" class="img-thumbnail" height="400" width="200" style="margin-right: 25px;">
 
         <h2><?php echo $Title_Media ?></h2>
-        <a href="###"><h3><?php echo $Username_User ?></h3></a>
+        <a href="###"><p>Reviewed by - <?php echo $Username_User ?></p></a>
         <?php echo $Review;?>
       </div>
     </div>
-  </div>
-  </div>
 
-<h2> Comments </h2>
+
+<div class="row">
+  <div class="col-md-12" align="center">
+    <h2> Comments </h2>
+  </div>
+  <div class="col-md-12">
 <?php
   $mediaID = $_GET['mediaID'];
 
@@ -180,7 +182,7 @@
   $CreatedOn_Com = $row3[3];
   $Comment_Com = $row3[4];
 
-  $query5 = "SELECT * FROM User WHERE ID = " . $UserID;
+  $query5 = "SELECT * FROM User WHERE ID = " . $UserID_Com;
   $result5 = mysql_query($query5, $mysql_access);
 
   if(!$result5)
@@ -197,9 +199,9 @@
   $Admin_User2 = $row5[4];
 
 echo <<<END
-<div class="container">
+
     <div class="row">
-      <div class="col-xs-8">
+      <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
             <div class="float: left image">
@@ -221,6 +223,7 @@ END;
   }
       mysql_close($mysql_access);
 ?>
+
 <form action='../hiddenPHP/addComment.php' method="get" style="background:none;">
       <div class="col-xs-8">
         <div class="panel panel-default">
@@ -240,6 +243,9 @@ END;
         </div>
       </div>
 	</form>
+</div>
+</div>
+</div>
   <!-- Info and contact links -->
   <div id="footer" class="container-fluid footer">
     <div class="row">
