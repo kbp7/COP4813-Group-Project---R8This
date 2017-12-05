@@ -25,14 +25,13 @@
           echo '<li><a href="pages/admin.php">Admin</a></li>';
         }
       ?>
-      <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
       <?php
         if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
           echo '<li style="float:right"><a href="pages/login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
         }
         else {
           $currentUser = $_SESSION['username'];
-          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
+          echo '<li style="float:right"><a href="pages/userProfile.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
           echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
         }
       ?>
@@ -161,19 +160,56 @@
 
     $reviewquery1 = "SELECT * FROM Review WHERE MediaID = " . $mediaID1;
     $reviewresult1 = mysql_query($reviewquery1, $mysql_access);
-
     if(!$reviewresult1)
       {
         die("Error processing data: ". mysql_error());
       }
-
     $reviewrow1 = mysql_fetch_row($reviewresult1);
-
     $ID1_Rev = $reviewrow1[0];
     $UserID1_Rev = $reviewrow1[1];
     $CreatedOn1_Rev = $reviewrow1[2];
     $MediaID1_Rev = $reviewrow1[3];
     $Review1_Rev = $reviewrow1[4];
+	
+	
+	    $reviewquery2 = "SELECT * FROM Review WHERE MediaID = " . $mediaID2;
+    $reviewresult2 = mysql_query($reviewquery2, $mysql_access);
+    if(!$reviewresult2)
+      {
+        die("Error processing data: ". mysql_error());
+      }
+    $reviewrow2 = mysql_fetch_row($reviewresult2);
+    $ID2_Rev = $reviewrow2[0];
+    $UserID2_Rev = $reviewrow2[1];
+    $CreatedOn2_Rev = $reviewrow2[2];
+    $MediaID2_Rev = $reviewrow2[3];
+    $Review2_Rev = $reviewrow2[4];
+	
+	    $reviewquery3 = "SELECT * FROM Review WHERE MediaID = " . $mediaID3;
+    $reviewresult3 = mysql_query($reviewquery3, $mysql_access);
+    if(!$reviewresult3)
+      {
+        die("Error processing data: ". mysql_error());
+      }
+    $reviewrow3 = mysql_fetch_row($reviewresult3);
+    $ID3_Rev = $reviewrow3[0];
+    $UserID3_Rev = $reviewrow3[1];
+    $CreatedOn3_Rev = $reviewrow3[2];
+    $MediaID3_Rev = $reviewrow3[3];
+    $Review3_Rev = $reviewrow3[4];
+	
+	    $reviewquery4 = "SELECT * FROM Review WHERE MediaID = " . $mediaID4;
+    $reviewresult4 = mysql_query($reviewquery4, $mysql_access);
+    if(!$reviewresult4)
+      {
+        die("Error processing data: ". mysql_error());
+      }
+    $reviewrow4 = mysql_fetch_row($reviewresult4);
+    $ID4_Rev = $reviewrow4[0];
+    $UserID4_Rev = $reviewrow4[1];
+    $CreatedOn4_Rev = $reviewrow4[2];
+    $MediaID4_Rev = $reviewrow4[3];
+    $Review4_Rev = $reviewrow4[4];
 
     mysql_close($mysql_access);
   ?>
@@ -205,8 +241,8 @@
       <div class="col-xs-6 reviewQuote">
         <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID2 ?>"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
         <blockquote>
-          <p>test</p>
-          <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
+          <p><?php echo $Review2_Rev;?></p>
+          <footer><?php echo $UserID2_Rev; ?><cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount2; ?>
         </p>
@@ -223,8 +259,8 @@
       <div class="col-xs-6 reviewQuote">
         <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID3 ?>"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
         <blockquote>
-          <p>test</p>
-          <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
+          <p><?php echo $Review3_Rev;?></p>
+          <footer><?php echo $UserID3_Rev; ?><cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount3; ?>
         </p>
@@ -241,8 +277,8 @@
       <div class="col-xs-6 reviewQuote">
         <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID4 ?>"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
         <blockquote>
-          <p>test</p>
-          <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
+          <p><?php echo $Review4_Rev;?></p>
+          <footer><?php echo $UserID4_Rev; ?><cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount4; ?>
         </p>
