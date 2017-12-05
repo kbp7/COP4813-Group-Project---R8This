@@ -168,11 +168,13 @@
    padding-bottom: 40px;
    */
    margin: 50px;
+   padding-bottom: 50px;
    border-style: none;
    border-color: white;
    border-radius: 10px;
    border-width: 10px;
    box-shadow: 10px 10px 0px black;
+
  }
 .footer {
   background: #f5faff;

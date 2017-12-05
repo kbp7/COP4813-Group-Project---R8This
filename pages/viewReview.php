@@ -22,13 +22,13 @@
       <li><a href="listReviews.php?Type= 'Game'">Games</a></li>
       <?php
         if($_SESSION['admin'] != null) {
-          echo '<li><a href="pages/admin.php">Admin</a></li>';
+          echo '<li><a href="admin.php">Admin</a></li>';
         }
       ?>
       <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
       <?php
         if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
-          echo '<li style="float:right"><a href="pages/login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
+          echo '<li style="float:right"><a href="login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
         }
         else {
           $currentUser = $_SESSION['username'];
@@ -124,7 +124,7 @@
   </div>
 
 
-  <div class="container-fluid" style="background: url('../images/<?php echo $Cover_Media ?>') no-repeat center center; background-size: cover; position:fixed; width: 100%; height: 100%; top:0; left:0; z-index: -1; filter:brightness(50%);">
+  <div class="container-fluid" style="background: url('../images/<?php echo $Cover_Media ?>'); background-size: cover; position:fixed; width: 100%; height: 100%; top:0; z-index: -1; filter:brightness(50%);">
 
   </div>
 
