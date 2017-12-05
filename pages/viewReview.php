@@ -18,10 +18,10 @@
   <div class="nav solidShadow">
     <ul>
       <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> R8This</a></li>
-      <li><a href="###">Movies</a></li>
-      <li><a href="###">Games</a></li>
+      <li><a href="listReviews.php?Type= 'Movie'">Movies</a></li>
+      <li><a href="listReviews.php?Type= 'Game'">Games</a></li>
       <?php
-        if($_SESSION['admin'] === 1) {
+        if($_SESSION['admin'] != null) {
           echo '<li><a href="pages/admin.php">Admin</a></li>';
         }
       ?>
@@ -38,18 +38,6 @@
         }
       ?>
 	  <ul>
-  </div>
-  <!-- Full width -->
-  <div class="container-fluid">
-    <div class="row align-middle" style="height: 175px;">
-      <div class="col-xs-12" style="z-index: 1;">
-        <div class="col-xs-2 col-xs-offset-5 text-center bannerDivPink" style="margin-bottom: -25px;">
-          <center>
-            <h3 style="color: white;">Movie Review</h3>
-          </center>
-        </div>
-      </div>
-    </div>
   </div>
 <?php
 
@@ -117,8 +105,28 @@
   mysql_close($mysql_access);
 
   ?>
+<!-- Full width -->
+<div class="container-fluid">
+  <div class="row align-middle" style="height: 175px;">
+    <div class="col-xs-12" style="z-index: 1;">
+      <div class="col-xs-2 col-xs-offset-5 text-center bannerDivPink" style="margin-bottom: -25px;">
+        <center>
+          <?php
+              if(strpos($MediaType_Media, 'Movie') !== FALSE){
+                echo '<h3 style="color: white;">Movie Reviews</h3>';
+              }
+              else{
+                echo '<h3 style="color: white;">Game Reviews</h3>';
+              }
+           ?>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
   <div class="container">
-    <div style="background: url('../images/BabyDriver.jpg') no-repeat center center; position:fixed; width: 100%; height: 1000px; top:0; left:0; z-index: -1; filter:blur(5px); filter:brightness(50%);"></div>
+    <div style="background: url('../images/<?php echo $Cover_Media ?>') no-repeat center center; position:fixed; width: 100%; height: 1000px; top:0; left:0; z-index: -1; filter:blur(5px); filter:brightness(50%);"></div>
     <div class="wumbotron">
       <!--h1 class="bigHeader lobster vertical-align">Baby Driver(2017)</h1-->
       <!--h2 class="tealAccent" style="margin-top: 215px; text-align: center; font-weight: normal;">Review</h2-->
@@ -135,7 +143,7 @@
     <div class="row" style="background:white;">
       <div class="col-xs-12 rounded">
 
-        <img src="../images/<?php echo $Cover_Media ?>" align="left" class="img-thumbnail" height="400" width="200">
+        <img src="../thumbIMG/<?php echo $Cover_Media ?>" align="left" class="img-thumbnail" height="400" width="200">
 
         <h2><?php echo $Title_Media ?></h2>
         <a href="###"><h3><?php echo $Username_User ?></h3></a>
@@ -231,15 +239,15 @@ END;
 			<button type="submit" class="btn btn-default" value="Add" >Add</button>
           </div>
         </div>
-      </div>	
-	</form>	  
+      </div>
+	</form>
   <!-- Info and contact links -->
   <div id="footer" class="container-fluid footer">
     <div class="row">
       <div class="col-xs-12">
         <center>
           <p>
-            <span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span>
+            <a href="about.html"><span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span></a>
             <span class="glyphicon glyphicon-envelope contactGlyphs" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-bitcoin contactGlyphs" aria-hidden="true"></span>
           </p>
@@ -255,7 +263,7 @@ END;
 
 
   <!-- Include jQuery and scripts -->
-  
+
   <script src="libraries/jquery.min.js"></script>
   <script src="libraries/anime-master/anime.min.js"></script>
   <script src="animation.js"></script>
