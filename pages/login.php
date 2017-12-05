@@ -58,6 +58,7 @@
             <input type="text" class="form-control" id="password" name="password" required>
           </div>
           <button type="submit" class="btn btn-lg">Sign In</button>
+          <button type="button" class="btn btn-lg"><a href="register.php">Register</a></button>
           <button type="button" class="btn btn-lg"><a href="../index.php">Cancel</a></button>
         </form>
       </div>
