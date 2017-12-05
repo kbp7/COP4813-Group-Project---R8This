@@ -367,7 +367,7 @@ canvas {
 /* unvisited link */
 
 a:link {
-  color: #ff446b;
+  color: #ff446b; /* pink */
   text-decoration: none;
 }
 
@@ -375,7 +375,7 @@ a:link {
 /* visited link */
 
 a:visited {
-  color: #00dada;
+  color: #ff446b;
   text-decoration: none;
 }
 
@@ -394,11 +394,11 @@ a:active {
 }
 
 /* color changing clyphicons */
-
-span.glyphicon:hover, span.glyphicon:active {
+/*
+span.glyphicon.glyphicon-info-sign.contactGlyphs:hover, span.glyphicon.glyphicon-info-sign.contactGlyphs:active {
   color: #ff446b;
 }
-
+*/
 /* BUTTONS */
 .contactGlyphs {
   margin: 25px;
