@@ -13,9 +13,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <!-- ///////////// Navbar ////////////// -->
+  <div class="nav solidShadow">
+    <ul>
+      <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+      <li><a href="###">Movies</a></li>
+      <li><a href="###">Games</a></li>
+      <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
+      <?php
+        if($_SESSION['username'] === "" || $_SESSION['username'] === null) {
+          echo '<li style="float:right"><a href="pages/login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>';
+        }
+        else {
+          $currentUser = $_SESSION['username'];
+          echo '<li style="float:right"><a href="pages/userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> ' . $currentUser . '</a></li>';
+          echo '<li style="float:right"><a href="pages/logout.php">Logout</a></li>';
+        }
+      ?>
+    </ul>
+  </div>
+
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 col-md-4 user-details">
+    <div class="col-md-12 user-details" align="center">
       <?php
 
         $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
@@ -44,52 +64,17 @@
             </div>
             <div class="user-info-block">
                 <div class="user-heading">
-                    <h3><?php echo $_SESSION['username']; ?></h3>
+                    <h1><?php echo $_SESSION['username']; ?></h1>
 
                 </div>
-                <ul class="navigation">
-                    <li class="active">
-                        <a data-toggle="tab" href="#information">
-                            <span class="glyphicon glyphicon-user"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#settings">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#email">
-                            <span class="glyphicon glyphicon-envelope"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#events">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="user-body">
-                    <div class="tab-content">
-                        <div id="information" class="tab-pane active">
-                            <h4>Account Information</h4>
-                        </div>
-                        <div id="settings" class="tab-pane">
-                            <h4>Settings</h4>
-                        </div>
-                        <div id="email" class="tab-pane">
-                            <h4>Send Message</h4>
-                        </div>
-                        <div id="review" class="tab-pane">
-                            <h4>Review</h4>
-                        </div>
-                    </div>
-                </div>
+
+
             </div>
         </div>
   </div>
 <div class="row reviewRows">
   <div class="col-md-8">
+    <h3>Latest Comments</h3>
   <?php
 
     // Access to the contents.
