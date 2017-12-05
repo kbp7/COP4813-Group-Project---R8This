@@ -16,13 +16,36 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-md-4 user-details">
+      <?php
+
+        $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
+        // Check connection
+        if(!$mysql_access)
+        {
+          die('Could not connect: ' . mysql_error());
+        }
+
+        mysql_select_db('group8');
+        $userID = $_SESSION['ID'];
+        $query = "SELECT * FROM Comment WHERE UserID=$userID ORDER BY ID DESC LIMIT 4";
+        $result = mysql_query($query, $mysql_access);
+
+        if(!$result)
+        {
+          die("Error processing data: ". mysql_error());
+        }
+
+        $avatarID = $userID % 4;
+
+
+        ?>
             <div class="user-image">
-                <img src="" alt="Huu Huynh" title="User profile" class="img-circle">
+                <img src='../images/avatars/<?php echo $avatarID ?>.jpg' alt="Picture" title="User profile" class="img-circle">
             </div>
             <div class="user-info-block">
                 <div class="user-heading">
-                    <h3>Huu Huynh</h3>
-                    <span class="help-block">Jacksonville, FL</span>
+                    <h3><?php echo $_SESSION['username']; ?></h3>
+
                 </div>
                 <ul class="navigation">
                     <li class="active">
@@ -65,33 +88,43 @@
             </div>
         </div>
   </div>
-</body>
+<div class="row reviewRows">
+  <div class="col-md-8">
   <?php
-    //pulling latest 4 comments
-    // Create connection
-    $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
-    // Check connection
-    // Check for Error  if(!$mysql_access)
-    {
-      die('Could not connect: ' . mysql_error());
-    }
 
-    mysql_select_db('group8');
+    // Access to the contents.
 
-    $select_comments2 = $db->query ("SELECT * FROM Comment WHERE UserID=$userID ORDER BY ID DESC LIMIT 4";
-    $result = mysql_query($query, $mysql_access);
+    echo "<p>";
+    echo "Hello";
+    echo "</p>";
 
-    if(!$result)
-    {
-      die("Error processing data: ". mysql_error());
-    }
+    $row1 = mysql_fetch_assoc($result);
+    $comment1 = $row1["Comment"];
+    echo $comment1;
 
-    //Access row contents
-    $row = mysql_fetch_row($result);
-    echo $row[0];
-    echo $row[1];
+    $row2 = mysql_fetch_assoc($result);
+    $comment2 = $row2["Comment"];
+    echo $comment2;
+
+    $row3 = mysql_fetch_assoc($result);
+    $comment3 = $row3["Comment"];
+    echo $comment3;
+
+    $row4 = mysql_fetch_assoc($result);
+    $comment4 = $row4["Comment"];
+    echo $comment4;
 
     mysql_close($mysql_access);
 
   ?>
+</div>
+</div>
+</body>
+
+
+
+
+
+
+
 </html>
