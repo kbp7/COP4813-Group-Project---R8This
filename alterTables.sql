@@ -59,6 +59,14 @@ INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (6,1, "2017-1
 INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (7,1, "2017-11-12 34:20:45.655", 9, "Destiny 2 succeeds where the original failed the most: its delivery of a story-driven campaign good enough to match its finely tuned first-person shooter gameplay and great looks. "); 
 INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (8,1, "2017-11-23 33:20:45.230", 10, "The first hours of Prey are enticing, with a mind-bending psychological opening scene that foreshadows a story more interesting than what the main plot ends up being");
 
+INSERT INTO Review (ID, UserID, CreatedOn, MediaID, Review) VALUES (10,1, "2017-10-21 23:21:40.800", 2, "Seven young outcasts in Derry, Maine, are about to face their worst nightmare -- an ancient, 
+shape-shifting evil that emerges from the sewer every 27 years to prey on the town's children. Banding together over the 
+course of one horrifying summer, the friends must overcome their own personal fears 
+to battle the murderous, bloodthirsty clown known as Pennywise. But Pennywise, the dancing clown who 
+tracks down and torments the children of small-town Maine, is deeply unsettling. What Bill Skarsgard does with the 
+role works well precisely because he doesn’t appear to be laboring 
+so hard to frighten us. He doesn’t vamp it up. He’s coy—he toys with these kids—making his sudden bursts 
+of insane clown hostility that much more shocking."); 
 
 
 
