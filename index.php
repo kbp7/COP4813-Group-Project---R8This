@@ -96,6 +96,57 @@
     $mediaID4 = $row4["ID"];
     $date4 = explode("-", $row4["ReleaseDate"]);
     $year4 = $date4[0];
+	
+	$countquery1 = "SELECT count(*) FROM Comment WHERE MediaID = $mediaID1";
+    $commentresult1 = mysql_query($countquery1, $mysql_access);
+    //Access row contents
+    $commentrow1 = mysql_fetch_row($commentresult1);
+    $commentcount1 = $commentrow1[0];
+
+	$countquery2 = "SELECT count(*) FROM Comment WHERE MediaID = $mediaID2";
+    $commentresult2 = mysql_query($countquery2, $mysql_access);
+    //Access row contents
+    $commentrow2 = mysql_fetch_row($commentresult2);
+    $commentcount2 = $commentrow2[0];
+	
+	$countquery3 = "SELECT count(*) FROM Comment WHERE MediaID = $mediaID3";
+    $commentresult3 = mysql_query($countquery3, $mysql_access);
+    //Access row contents
+    $commentrow3 = mysql_fetch_row($commentresult3);
+    $commentcount3 = $commentrow3[0];
+	
+	$countquery4 = "SELECT count(*) FROM Comment WHERE MediaID = $mediaID4";
+    $commentresult4 = mysql_query($countquery4, $mysql_access);
+    //Access row contents
+    $commentrow4 = mysql_fetch_row($commentresult4);
+    $commentcount4 = $commentrow4[0];
+	
+	
+	
+	//Get Likes
+	$countlikequery1 = "SELECT count(*) FROM Likes WHERE MediaID = $mediaID1";
+    $likeresult1 = mysql_query($countlikequery1, $mysql_access);
+    //Access row contents
+    $likerow1 = mysql_fetch_row($likeresult1);
+    $likecount1 = $likerow1[0];
+
+	$countlikequery2 = "SELECT count(*) FROM Likes WHERE MediaID = $mediaID2";
+    $likeresult2 = mysql_query($countlikequery2, $mysql_access);
+    //Access row contents
+    $likerow2 = mysql_fetch_row($likeresult2);
+    $likecount2 = $likerow2[0];
+	
+	$countlikequery3 = "SELECT count(*) FROM Likes WHERE MediaID = $mediaID3";
+    $likeresult3 = mysql_query($countlikequery3, $mysql_access);
+    //Access row contents
+    $likerow3 = mysql_fetch_row($likeresult3);
+    $likecount3 = $likerow3[0];
+	
+	$countlikequery4 = "SELECT count(*) FROM Likes WHERE MediaID = $mediaID4";
+    $likeresult4 = mysql_query($countlikequery4, $mysql_access);
+    //Access row contents
+    $likerow4 = mysql_fetch_row($likeresult4);
+    $likecount4 = $likerow4[0];
 
     mysql_close($mysql_access);
 ?>
@@ -139,9 +190,9 @@
           <p><?php echo $Review1_Rev;?></p>
           <footer><?php echo $UserID1_Rev; ?><cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count0; ?>
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount1; ?>
         </p>
-        <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 56
+        <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $commentcount1; ?>
         </p>
       </div>
     </div>
@@ -157,9 +208,9 @@
           <p>test</p>
           <footer>Roger Ebert's Ghost, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count1; ?>
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount2; ?>
         </p>
-        <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 77
+        <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><?php echo $commentcount2; ?>
         </p>
       </div>
     </div>
@@ -175,9 +226,9 @@
           <p>test</p>
           <footer>Socrates, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count2; ?>
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount3; ?>
         </p>
-        <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 40
+        <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $commentcount3; ?>
         </p>
       </div>
     </div>
@@ -193,9 +244,9 @@
           <p>test</p>
           <footer>Hambone Fakenamington, <cite title="Source Title">Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $count3; ?>
+        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount4; ?>
         </p>
-        <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 84
+        <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $commentcount4; ?>
         </p>
       </div>
     </div>
