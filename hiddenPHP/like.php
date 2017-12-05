@@ -27,9 +27,8 @@
     if($count0 === 0) {
       $query = "INSERT INTO Likes(MediaID, UserID) values($mediaID, $userID)";
       $likeresult = mysql_query($query, $mysql_access);
-      echo "added like";
     }
     mysql_close($mysql_access);
   }
-
+  header("Location: ../index.php");
  ?>

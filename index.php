@@ -265,7 +265,7 @@
           </p>
           <footer><?php echo $userName1; ?><cite title="Source Title">    Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount1; ?>
+        <p style="float: left;"><a href="hiddenPHP/like.php?id=<?php echo $mediaID1; ?>"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a> <?php echo $likecount1; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $commentcount1; ?>
         </p>
@@ -286,9 +286,9 @@
           ?></p>
           <footer><?php echo $userName2; ?><cite title="Source Title">    Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount2; ?>
+        <p style="float: left;"><a href="hiddenPHP/like.php?id=<?php echo $mediaID2; ?>"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a> <?php echo $likecount2; ?>
         </p>
-        <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><?php echo $commentcount2; ?>
+        <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $commentcount2; ?>
         </p>
       </div>
     </div>
@@ -307,7 +307,7 @@
           ?></p>
           <footer><?php echo $userName3; ?><cite title="Source Title">    Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount3; ?>
+        <p style="float: left;"><a href="hiddenPHP/like.php?id=<?php echo $mediaID3; ?>"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a> <?php echo $likecount3; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $commentcount3; ?>
         </p>
@@ -328,7 +328,7 @@
           ?></p>
           <footer><?php echo $userName4; ?><cite title="Source Title">    Reviewer</cite></footer>
         </blockquote>
-        <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount4; ?>
+        <p style="float: left;"><a href="hiddenPHP/like.php?id=<?php echo $mediaID4; ?>"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a> <?php echo $likecount4; ?>
         </p>
         <p style="float: left; margin-left: 50px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <?php echo $commentcount4; ?>
         </p>
