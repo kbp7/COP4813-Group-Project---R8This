@@ -18,6 +18,7 @@
       <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
       <li><a href="./listReviews.php?Type= 'Movie'">Movies</a></li>
       <li><a href="./listReviews.php?Type= 'Game'">Games</a></li>
+      <li style="float:right"><a href="userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
     </ul>
   </div>
   <!-- Full width -->
