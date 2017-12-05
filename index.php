@@ -21,11 +21,10 @@
       <li><a href="pages/listReviews.php?Type= 'Movie'">Movies</a></li>
       <li><a href="pages/listReviews.php?Type= 'Game'">Games</a></li>
       <?php
-        if($_SESSION['admin'] === 1) {
+        if($_SESSION['admin'] != null) {
           echo '<li><a href="pages/admin.php">Admin</a></li>';
         }
       ?>
-      <li><a href="pages/admin.php">Admin</a></li>
       <li><a href="###"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
       <?php
         if($_SESSION['username'] === "" || $_SESSION['username'] === null) {

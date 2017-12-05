@@ -33,7 +33,7 @@
 		$_SESSION['ID'] = $ID;
 		echo "Hello $username";
 		echo "your password is: $password";
-		if($isAdmin === 1) {
+		if($isAdmin != null) {
 			$_SESSION['admin'] = $isAdmin;
 		}
 		else { $_SESSION['admin'] = 0; }
