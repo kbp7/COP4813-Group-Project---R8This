@@ -122,30 +122,32 @@
 	
 	
 	
-	//Get Likes
+	//Get Likes for each Review
 	$countlikequery1 = "SELECT count(*) FROM Likes WHERE MediaID = $mediaID1";
     $likeresult1 = mysql_query($countlikequery1, $mysql_access);
-    //Access row contents
+    //Get Like count
     $likerow1 = mysql_fetch_row($likeresult1);
     $likecount1 = $likerow1[0];
 
 	$countlikequery2 = "SELECT count(*) FROM Likes WHERE MediaID = $mediaID2";
     $likeresult2 = mysql_query($countlikequery2, $mysql_access);
-    //Access row contents
+    //Get Like count
     $likerow2 = mysql_fetch_row($likeresult2);
     $likecount2 = $likerow2[0];
 	
 	$countlikequery3 = "SELECT count(*) FROM Likes WHERE MediaID = $mediaID3";
     $likeresult3 = mysql_query($countlikequery3, $mysql_access);
-    //Access row contents
+    //Get Like count
     $likerow3 = mysql_fetch_row($likeresult3);
     $likecount3 = $likerow3[0];
 	
 	$countlikequery4 = "SELECT count(*) FROM Likes WHERE MediaID = $mediaID4";
     $likeresult4 = mysql_query($countlikequery4, $mysql_access);
-    //Access row contents
+    //Get Like count
     $likerow4 = mysql_fetch_row($likeresult4);
     $likecount4 = $likerow4[0];
+	
+	
 
     mysql_close($mysql_access);
 ?>
@@ -164,15 +166,15 @@
       {
         die("Error processing data: ". mysql_error());
       }
+	  //Get Review contents
     $reviewrow1 = mysql_fetch_row($reviewresult1);
     $ID1_Rev = $reviewrow1[0];
     $UserID1_Rev = $reviewrow1[1];
     $CreatedOn1_Rev = $reviewrow1[2];
     $MediaID1_Rev = $reviewrow1[3];
-    $Review1_Rev = $reviewrow1[4];
+    $Review1_Rev = $reviewrow1[4];	
 	
-	
-	    $reviewquery2 = "SELECT * FROM Review WHERE MediaID = " . $mediaID2;
+    $reviewquery2 = "SELECT * FROM Review WHERE MediaID = " . $mediaID2;
     $reviewresult2 = mysql_query($reviewquery2, $mysql_access);
     if(!$reviewresult2)
       {
@@ -185,7 +187,7 @@
     $MediaID2_Rev = $reviewrow2[3];
     $Review2_Rev = $reviewrow2[4];
 	
-	    $reviewquery3 = "SELECT * FROM Review WHERE MediaID = " . $mediaID3;
+	$reviewquery3 = "SELECT * FROM Review WHERE MediaID = " . $mediaID3;
     $reviewresult3 = mysql_query($reviewquery3, $mysql_access);
     if(!$reviewresult3)
       {
@@ -198,7 +200,7 @@
     $MediaID3_Rev = $reviewrow3[3];
     $Review3_Rev = $reviewrow3[4];
 	
-	    $reviewquery4 = "SELECT * FROM Review WHERE MediaID = " . $mediaID4;
+    $reviewquery4 = "SELECT * FROM Review WHERE MediaID = " . $mediaID4;
     $reviewresult4 = mysql_query($reviewquery4, $mysql_access);
     if(!$reviewresult4)
       {
@@ -210,6 +212,27 @@
     $CreatedOn4_Rev = $reviewrow4[2];
     $MediaID4_Rev = $reviewrow4[3];
     $Review4_Rev = $reviewrow4[4];
+	
+		//Get username for each Review
+	$usernamequery1 = "SELECT * FROM User WHERE ID='$UserID1_Rev'";
+	$usernameresult1 = mysql_query($usernamequery1, $mysql_access);
+	$usernamerow1 = mysql_fetch_assoc($usernameresult1);
+	$userName1 = $usernamerow1['Username'];
+	
+	$usernamequery2 = "SELECT * FROM User WHERE ID='$UserID2_Rev'";
+	$usernameresult2 = mysql_query($usernamequery2, $mysql_access);
+	$usernamerow2 = mysql_fetch_assoc($usernameresult2);
+	$userName2 = $usernamerow2['Username'];
+	
+	$usernamequery3 = "SELECT * FROM User WHERE ID='$UserID3_Rev'";
+	$usernameresult3 = mysql_query($usernamequery3, $mysql_access);
+	$usernamerow3 = mysql_fetch_assoc($usernameresult3);
+	$userName3 = $usernamerow3['Username'];
+	
+	$usernamequery4 = "SELECT * FROM User WHERE ID='$UserID4_Rev'";
+	$usernameresult4 = mysql_query($usernamequery4, $mysql_access);
+	$usernamerow4 = mysql_fetch_assoc($usernameresult4);
+	$userName4 = $usernamerow4['Username'];
 
     mysql_close($mysql_access);
   ?>
@@ -224,7 +247,7 @@
         <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID1 ?>"><?php echo $row1["Title"];?> (<?php echo $year1; ?>)</a></h3>
         <blockquote>
           <p><?php echo $Review1_Rev;?></p>
-          <footer><?php echo $UserID1_Rev; ?><cite title="Source Title">Reviewer</cite></footer>
+          <footer><?php echo $userName1; ?><cite title="Source Title">    Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount1; ?>
         </p>
@@ -242,7 +265,7 @@
         <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID2 ?>"><?php echo $row2["Title"]; ?> (<?php echo $year2; ?>)</a></h3>
         <blockquote>
           <p><?php echo $Review2_Rev;?></p>
-          <footer><?php echo $UserID2_Rev; ?><cite title="Source Title">Reviewer</cite></footer>
+          <footer><?php echo $userName2; ?><cite title="Source Title">    Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount2; ?>
         </p>
@@ -260,7 +283,7 @@
         <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID3 ?>"><?php echo $row3["Title"]; ?> (<?php echo $year3; ?>)</a></h3>
         <blockquote>
           <p><?php echo $Review3_Rev;?></p>
-          <footer><?php echo $UserID3_Rev; ?><cite title="Source Title">Reviewer</cite></footer>
+          <footer><?php echo $userName3; ?><cite title="Source Title">    Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount3; ?>
         </p>
@@ -278,7 +301,7 @@
         <h3><a href="pages/viewReview.php?mediaID= <?php echo $mediaID4 ?>"><?php echo $row4["Title"]; ?> (<?php echo $year4; ?>)</a></h3>
         <blockquote>
           <p><?php echo $Review4_Rev;?></p>
-          <footer><?php echo $UserID4_Rev; ?><cite title="Source Title">Reviewer</cite></footer>
+          <footer><?php echo $userName4; ?><cite title="Source Title">    Reviewer</cite></footer>
         </blockquote>
         <p style="float: left;"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <?php echo $likecount4; ?>
         </p>
