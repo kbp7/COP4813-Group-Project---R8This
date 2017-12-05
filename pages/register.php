@@ -16,35 +16,11 @@
   <div class="nav solidShadow">
     <ul>
       <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-      <li><a href="./listReviews.php?Type= 'Movie'">Movies</a></li>
-      <li><a href="./listReviews.php?Type= 'Game'">Games</a></li>
+      <li><a href="listReviews.php?Type= 'Movie'">Movies</a></li>
+      <li><a href="listReviews.php?Type= 'Game'">Games</a></li>
       <li style="float:right"><a href="userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
     </ul>
   </div>
-  <!-- Full width -->
-  <!--
-        <div class="container-fluid">
-            <div class="row align-middle" style="height: 175px;">
-                <div class="col-xs-4" style="height: 225px; margin-top: -75px;">
-                    <h1 class="bigHeader comfortaa text-right" style="color: white; padding-top: 125px;">R8This</h1>
-                </div>
-
-                <div class="col-xs-4" style="height: 225px; margin-top: -75px;">
-                    <center>
-                        <canvas id="myCanvas" height="300" width="300"></canvas>
-                    </center>
-                </div>
-                <div class="col-xs-12" style="z-index: 1;">
-                    <div class="col-xs-2 col-xs-offset-5 text-center bannerDivPink" style="margin-bottom: -25px;">
-                        <center>
-                            <h3 style="color: white;">Login</h3>
-                        </center>
-                    </div>
-                </div>
-            </div>
-        </div>
-      -->
-  <!-- PHP Authentication in progress -->
   <div class="container">
     <div class="row" style="padding-top:50px;">
       <div class="col-md-6 col-md-offset-3">
@@ -68,6 +44,9 @@
           <button type="submit" class="btn btn-lg">Register</button>
           <button type="button" class="btn btn-lg"><a href="../index.php">Cancel</a></button>
         </form>
+        <p style="background-color: white;">Output: <br>
+
+
         <?php
           $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
           $username = $_POST['username'];
@@ -79,13 +58,13 @@
         	}
         	mysql_select_db('group8');
 
-        	$query = "SELECT count(Username) FROM User WHERE Username='$username'";
+        	$query = "SELECT count(*) FROM User WHERE Username='$username'";
         	$result = mysql_query($query, $mysql_access);
 
         	$row = mysql_fetch_assoc($result);
         	$existingUser = $row[0];
         	echo $existingUser;
-
+/*
         	if($existingUser > 0)
         	{
         		echo "<p>
@@ -94,12 +73,14 @@
 
         	}else{
 
-        		$insertQuery = 'INSERT INTO User(Username, Email, Password) VALUES('$username', '$email', '$password')';
+        		$insertQuery = 'INSERT INTO User(Username, Email, Password, Admin) VALUES('$username', '$email', '$password', 0)';
             $insertresult = mysql_query($insertQuery, $mysql_access);
             header("Location: login.php");
         	}
+          */
         	mysql_close($mysql_access);
          ?>
+         </p>
       </div>
     </div>
   </div>
