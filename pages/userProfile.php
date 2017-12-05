@@ -59,12 +59,12 @@
 
 
         ?>
-            <div class="user-image">
+            <div class="thumb2">
                 <img src='../images/avatars/<?php echo $avatarID ?>.jpg' alt="Picture" title="User profile" class="img-circle">
             </div>
             <div class="user-info-block">
                 <div class="user-heading">
-                    <h1><?php echo $_SESSION['username']; ?></h1>
+                    <h1 class="lobster bigHeader"><?php echo $_SESSION['username']; ?></h1>
 
                 </div>
 
@@ -72,32 +72,33 @@
             </div>
         </div>
   </div>
-<div class="row reviewRows">
-  <div class="col-md-8">
+<div class="row">
+  <div class="col-md-12" align="center">
     <h3>Latest Comments</h3>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+
   <?php
+  //$four = 0;
+    while($row = mysql_fetch_assoc($result)) {
+      $comment = $row["Comment"];
+      $mediaID = $row["MediaID"];
+      $query2 = "SELECT * FROM Media WHERE ID=$mediaID";
+      $result2 = mysql_query($query2, $mysql_access);
+      $media = mysql_fetch_assoc($result2);
+      $commentTitle = $media["Title"];
+      echo '
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">'.$commentTitle.'</h3>
+          </div>
+          <div class="panel-body">'.
+            $comment . '
+          </div>
+        </div>
+      ';
+    }
 
-    // Access to the contents.
-
-    echo "<p>";
-    echo "Hello";
-    echo "</p>";
-
-    $row1 = mysql_fetch_assoc($result);
-    $comment1 = $row1["Comment"];
-    echo $comment1;
-
-    $row2 = mysql_fetch_assoc($result);
-    $comment2 = $row2["Comment"];
-    echo $comment2;
-
-    $row3 = mysql_fetch_assoc($result);
-    $comment3 = $row3["Comment"];
-    echo $comment3;
-
-    $row4 = mysql_fetch_assoc($result);
-    $comment4 = $row4["Comment"];
-    echo $comment4;
 
     mysql_close($mysql_access);
 
