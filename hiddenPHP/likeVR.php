@@ -2,7 +2,7 @@
   session_start();
   //this php script adds likes to database only if user is logged in. Can only like 1 thing once.
 
-  if($_SESSION['username'] !== "" || $_SESSION['username'] !== NULL) {
+  if($_SESSION['ID'] > 0 || $_SESSION['admin'] != null) {
     $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
     if(!$mysql_access)
     {
@@ -29,6 +29,9 @@
       $likeresult = mysql_query($query, $mysql_access);
     }
     mysql_close($mysql_access);
+	header("Location: ../pages/viewReview.php?mediaID= $mediaID");
   }
-  header("Location: ../pages/viewReview.php?mediaID= $mediaID");
+    else{
+	 header("Location: ../pages/login.php");
+ }
  ?>

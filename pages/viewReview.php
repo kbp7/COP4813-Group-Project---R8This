@@ -147,6 +147,14 @@
       <h3><a href="../hiddenPHP/likeVR.php?id=<?php echo $mediaID; ?>"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a> <?php echo $likecount; ?>
       </h3>
       <?php echo $Review;?>
+      <div align="right">
+      <h3>R8This Score: <?php echo $Rating_Media; ?></h3>
+      <?php
+        if($Rating_Media === '8'){
+          echo '<h4> Certified Octopi!</h4>';
+        }
+       ?>
+    </div>
     </div>
   </div>
 
@@ -259,8 +267,6 @@ END;
         <center>
           <p>
             <a href="about.html"><span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span></a>
-            <span class="glyphicon glyphicon-envelope contactGlyphs" aria-hidden="true"></span>
-            <span class="glyphicon glyphicon-bitcoin contactGlyphs" aria-hidden="true"></span>
           </p>
         </center>
       </div>

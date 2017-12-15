@@ -18,7 +18,7 @@
       <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
       <li><a href="listReviews.php?Type= 'Movie'">Movies</a></li>
       <li><a href="listReviews.php?Type= 'Game'">Games</a></li>
-      <li style="float:right"><a href="userProfile.html"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
+      <li style="float:right"><a href="login.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
     </ul>
   </div>
   <div class="container">
@@ -44,8 +44,6 @@
           <button type="submit" class="btn btn-lg">Register</button>
           <button type="button" class="btn btn-lg"><a href="../index.php">Cancel</a></button>
         </form>
-        <p style="background-color: white;">Output: <br>
-
 
         <?php
           $mysql_access = mysql_connect(localhost, 'group8', 'fall2017887766');
@@ -64,7 +62,7 @@
         	$row = mysql_fetch_assoc($result);
         	$existingUser = $row[0];
         	echo $existingUser;
-/*
+
         	if($existingUser > 0)
         	{
         		echo "<p>
@@ -72,12 +70,16 @@
                   </p>";
 
         	}else{
+            $getIDQuery = 'SELECT * FROM User ORDER BY ID DESC';
+            $IDQueryResult = mysql_query($getIDQuery, $mysql_access);
+            $lastUser = mysql_fetch_assoc($IDQueryResult);
+            $highestID = $lastUser['ID'] + 1;
 
-        		$insertQuery = 'INSERT INTO User(Username, Email, Password, Admin) VALUES('$username', '$email', '$password', 0)';
+        		$insertQuery = "INSERT INTO User(ID, Username, Email, Password, Admin) VALUES($highestID, '$username', '$email', '$password', 0)";
             $insertresult = mysql_query($insertQuery, $mysql_access);
-            header("Location: login.php");
+            //header("Location: login.php");
         	}
-          */
+
         	mysql_close($mysql_access);
          ?>
          </p>
@@ -91,8 +93,6 @@
             <center>
               <p>
                 <span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-envelope contactGlyphs" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-bitcoin contactGlyphs" aria-hidden="true"></span>
               </p>
             </center>
           </div>

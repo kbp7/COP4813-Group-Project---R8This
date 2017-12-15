@@ -343,8 +343,6 @@
         <center>
           <p>
             <a href="pages/about.html"><span class="glyphicon glyphicon-info-sign contactGlyphs" aria-hidden="true"></span></a>
-            <span class="glyphicon glyphicon-envelope contactGlyphs" aria-hidden="true"></span>
-            <span class="glyphicon glyphicon-bitcoin contactGlyphs" aria-hidden="true"></span>
           </p>
         </center>
       </div>
